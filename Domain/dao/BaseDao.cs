@@ -135,8 +135,8 @@ namespace Domain.Dao
         {
             try
             {
-                // vytvor prazdny zoznam
-                List<T> zoznam = new List<T>();
+                // vytvor prazdny zoznam Test
+                List<T> zoznam = new List<T>(); 
 
                 using (SqlCeConnection con = new SqlCeConnection(this.connString))
                 {
