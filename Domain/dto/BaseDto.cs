@@ -48,5 +48,10 @@ namespace Domain.Dto
         /// </summary>
         /// <param name="row">data z DB - jeden riadok</param>
         public abstract void PopulateDto(SqlCeDataReader row);
+
+        /// <summary>
+        /// Id zaznamu
+        /// </summary>
+        public long Id { get; set; }
     }
 }

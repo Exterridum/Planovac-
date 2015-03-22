@@ -22,7 +22,6 @@ namespace Business
         public KontaktBusiness()
         {
             this.dao = new KontaktDao();
-            //
         }
 
         /// <summary>

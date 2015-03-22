@@ -77,6 +77,7 @@ namespace Gui
 
             // Inicializujem data gridy
             InicializujUdalostiDgv();
+            InicializujKontaktyDgv();
         }
 
         /* ****************************************************************************************** */
@@ -414,17 +415,7 @@ namespace Gui
             ZaskrtniOdskrtniVsetkyCheckBoxy(kontaktyDataGridView, (CheckBox)sender);
         }
 
-        /// <summary>
-        /// Event handler - formatovanie bunky
-        /// --------------------------------------------------------------------------------------------
-        /// ----!!!!!! Formatovanie buniek data gridu !!!!!!--------------------------------------------
-        /// --------------------------------------------------------------------------------------------
-        /// zabezpecuje farebne odlisenie kontakty, farebne oznacenie priority
-        /// event sa spusta vzdy pred vykreslenim bunky, urobil som to tak preto aby som mal kompletnu kontrolu nad formatovanim buniek
-        /// (mozem dynamicky menit farbu pozadia bunky, farbu pozadia ked sa bunka oznaci (selected) atd...)
-        /// </summary>
-        /// <param name="sender">odosielatel event-u</param>
-        /// <param name="e">event parameter</param>
+        
         private void kontaktyDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             // ! defaultne nastavenie zafarbenia bunky dalej v kode mozem ovveride-nut defaultne nastavenie !
@@ -459,7 +450,7 @@ namespace Gui
                 // ziskam objekt
                 Kontakt k = (Kontakt)kontaktyDataGridView.SelectedRows[0].DataBoundItem;
 
-                UdalostOkno okno = new UdalostOkno(k.Id);
+                KontaktOkno okno = new KontaktOkno(k.Id);
 
                 // odznacim header check box ak bol zaskrtnuty
                 if (((CheckBox)this.kontaktyDataGridView.Controls["header_checkbox"]).Checked)
@@ -542,14 +533,14 @@ namespace Gui
         /// <param name="dgv">vybrany datagridview</param>
         /// <param name="id">id zaznamu</param>
         /// <returns>index riadku zaznamu v datagridview</returns>
-        public int OznacZaznamSIdVDataGride(DataGridView dgv, long id)
+        public int OznacZaznamSIdVDataGride<T>(DataGridView dgv, long id)
         {
             // index riadku v datagride oznaceneho zaznamu
             int row_index = -1;
 
             foreach (DataGridViewRow row in dgv.Rows)
             {
-                if (((Udalost)row.DataBoundItem).Id == id)
+                if (((BaseDto<T>)row.DataBoundItem).Id == id)
                 {
                     // oznac riadok
                     dgv.Rows[row.Index].Selected = true;

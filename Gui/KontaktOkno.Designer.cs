@@ -1,4 +1,6 @@
-﻿namespace Gui
+﻿using Microsoft.Win32;
+
+namespace Gui
 {
     partial class KontaktOkno
     {
@@ -57,6 +59,7 @@
             this.ok_btn.TabIndex = 0;
             this.ok_btn.Text = "button1";
             this.ok_btn.UseVisualStyleBackColor = true;
+            this.ok_btn.Click += new System.EventHandler(this.ok_btn_click);
             // 
             // kontakt_meno_l
             // 
@@ -146,6 +149,7 @@
             this.cancel_btn.TabIndex = 13;
             this.cancel_btn.Text = "button2";
             this.cancel_btn.UseVisualStyleBackColor = true;
+            this.cancel_btn.Click += new System.EventHandler(this.cancel_btn_click);
             // 
             // kontakt_adresa_ulica_l
             // 
@@ -231,6 +235,10 @@
             this.Controls.Add(this.ok_btn);
             this.Name = "KontaktOkno";
             this.Text = "KontaktOkno";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.KontaktOkno_FormClosed);
+            this.Load += new System.EventHandler(this.KontaktOkno_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

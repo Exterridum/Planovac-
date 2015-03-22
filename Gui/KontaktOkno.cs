@@ -129,7 +129,7 @@ namespace Gui
                 var parent = (HlavneOkno) this.Owner;
                 parent.RefreshDataGrid<Kontakt>(parent.KontaktyDataGridView, kb);
 
-                int row_index = parent.OznacZaznamSIdVDataGride(parent.KontaktyDataGridView, dto.Id);
+                int row_index = parent.OznacZaznamSIdVDataGride<Kontakt>(parent.KontaktyDataGridView, dto.Id);
 
                 parent.ScrollujDataGridKZaznamu(parent.KontaktyDataGridView, row_index);
             }

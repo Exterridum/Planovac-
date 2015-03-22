@@ -53,11 +53,6 @@ namespace Domain.Dto
         }
 
         /// <summary>
-        /// Id zaznamu
-        /// </summary>
-        public long Id { get; set; }
-
-        /// <summary>
         /// User, ktoremu kontakt patri
         /// </summary>
         public string User { get; set; }

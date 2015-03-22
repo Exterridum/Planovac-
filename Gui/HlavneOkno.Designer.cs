@@ -104,6 +104,7 @@
             this.vytvorit_kontakt_btn.TabIndex = 5;
             this.vytvorit_kontakt_btn.Text = "button3";
             this.vytvorit_kontakt_btn.UseVisualStyleBackColor = true;
+            this.vytvorit_udalost_btn.Click += new System.EventHandler(this.vytvorit_kontakt_btn_Click);
             // 
             // kontaktyDataGridView
             // 
@@ -120,7 +121,9 @@
             this.kontaktyDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.kontaktyDataGridView.Size = new System.Drawing.Size(300, 450);
             this.kontaktyDataGridView.TabIndex = 1;
-            this.kontaktyDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.kontaktyDataGridView_CellContentClick);
+            this.udalostiDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.kontaktyDataGridView_CellClick);
+            this.udalostiDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.kontaktyDataGridView_CellFormatting);
+            this.udalostiDataGridView.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.kontaktyDataGridView_CellMouseEnter);
             // 
             // zmazat_kontakt_btn
             // 
@@ -130,6 +133,7 @@
             this.zmazat_kontakt_btn.TabIndex = 7;
             this.zmazat_kontakt_btn.Text = "button4";
             this.zmazat_kontakt_btn.UseVisualStyleBackColor = true;
+            this.zmazat_kontakt_btn.Click += new System.EventHandler(this.zmazat_kontakt_btn_Click);
             // 
             // HlavneOkno
             // 

@@ -182,7 +182,7 @@ namespace Gui
                 rodic.RefreshDataGrid<Udalost>(rodic.UdalostiDataGridView, ub);
 
                 // oznac zaznam
-                int row_index = rodic.OznacZaznamSIdVDataGride(rodic.UdalostiDataGridView, dto.Id);
+                int row_index = rodic.OznacZaznamSIdVDataGride<Udalost>(rodic.UdalostiDataGridView, dto.Id);
 
                 // scrolluj k danemu zaznamu
                 rodic.ScrollujDataGridKZaznamu(rodic.UdalostiDataGridView, row_index);           
