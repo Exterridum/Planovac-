@@ -28,28 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.okbtn = new System.Windows.Forms.Button();
+            this.ok_btn = new System.Windows.Forms.Button();
             this.kontakt_meno_l = new System.Windows.Forms.Label();
             this.kontakt_priezvisko_l = new System.Windows.Forms.Label();
-            this.kontakt_adresa_l = new System.Windows.Forms.Label();
+            this.kontakt_adresa_obec_l = new System.Windows.Forms.Label();
             this.kontakt_email_l = new System.Windows.Forms.Label();
             this.kontakt_telc_l = new System.Windows.Forms.Label();
             this.kontakt_meno_tb = new System.Windows.Forms.TextBox();
             this.kontakt_priezvisko_tb = new System.Windows.Forms.TextBox();
-            this.kontakt_adresa_tb = new System.Windows.Forms.TextBox();
+            this.kontakt_adresa_obec_tb = new System.Windows.Forms.TextBox();
             this.kontakt_email_tb = new System.Windows.Forms.TextBox();
             this.kontakt_telc_tb = new System.Windows.Forms.TextBox();
-            this.cancelbtn = new System.Windows.Forms.Button();
+            this.cancel_btn = new System.Windows.Forms.Button();
+            this.kontakt_adresa_ulica_l = new System.Windows.Forms.Label();
+            this.kontakt_adresa_cislo_l = new System.Windows.Forms.Label();
+            this.kontakt_adresa_ulica_tb = new System.Windows.Forms.TextBox();
+            this.kontakt_adresa_cislo_tb = new System.Windows.Forms.TextBox();
+            this.kontakt_adresa_psc_tb = new System.Windows.Forms.TextBox();
+            this.kontakt_adresa_psc_l = new System.Windows.Forms.Label();
+            this.kontakt_adresa_l = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // okbtn
+            // ok_btn
             // 
-            this.okbtn.Location = new System.Drawing.Point(261, 22);
-            this.okbtn.Name = "okbtn";
-            this.okbtn.Size = new System.Drawing.Size(75, 23);
-            this.okbtn.TabIndex = 0;
-            this.okbtn.Text = "button1";
-            this.okbtn.UseVisualStyleBackColor = true;
+            this.ok_btn.Location = new System.Drawing.Point(261, 22);
+            this.ok_btn.Name = "ok_btn";
+            this.ok_btn.Size = new System.Drawing.Size(75, 23);
+            this.ok_btn.TabIndex = 0;
+            this.ok_btn.Text = "button1";
+            this.ok_btn.UseVisualStyleBackColor = true;
             // 
             // kontakt_meno_l
             // 
@@ -69,32 +76,32 @@
             this.kontakt_priezvisko_l.TabIndex = 4;
             this.kontakt_priezvisko_l.Text = "label2";
             // 
-            // kontakt_adresa_l
+            // kontakt_adresa_obec_l
             // 
-            this.kontakt_adresa_l.AutoSize = true;
-            this.kontakt_adresa_l.Location = new System.Drawing.Point(27, 92);
-            this.kontakt_adresa_l.Name = "kontakt_adresa_l";
-            this.kontakt_adresa_l.Size = new System.Drawing.Size(35, 13);
-            this.kontakt_adresa_l.TabIndex = 5;
-            this.kontakt_adresa_l.Text = "label3";
+            this.kontakt_adresa_obec_l.AutoSize = true;
+            this.kontakt_adresa_obec_l.Location = new System.Drawing.Point(27, 122);
+            this.kontakt_adresa_obec_l.Name = "kontakt_adresa_obec_l";
+            this.kontakt_adresa_obec_l.Size = new System.Drawing.Size(35, 13);
+            this.kontakt_adresa_obec_l.TabIndex = 5;
+            this.kontakt_adresa_obec_l.Text = "label3";
             // 
             // kontakt_email_l
             // 
             this.kontakt_email_l.AutoSize = true;
-            this.kontakt_email_l.Location = new System.Drawing.Point(27, 198);
+            this.kontakt_email_l.Location = new System.Drawing.Point(27, 212);
             this.kontakt_email_l.Name = "kontakt_email_l";
             this.kontakt_email_l.Size = new System.Drawing.Size(35, 13);
             this.kontakt_email_l.TabIndex = 6;
-            this.kontakt_email_l.Text = "label4";
+            this.kontakt_email_l.Text = "label7";
             // 
             // kontakt_telc_l
             // 
             this.kontakt_telc_l.AutoSize = true;
-            this.kontakt_telc_l.Location = new System.Drawing.Point(27, 224);
+            this.kontakt_telc_l.Location = new System.Drawing.Point(27, 238);
             this.kontakt_telc_l.Name = "kontakt_telc_l";
             this.kontakt_telc_l.Size = new System.Drawing.Size(35, 13);
             this.kontakt_telc_l.TabIndex = 7;
-            this.kontakt_telc_l.Text = "label5";
+            this.kontakt_telc_l.Text = "label8";
             // 
             // kontakt_meno_tb
             // 
@@ -102,7 +109,6 @@
             this.kontakt_meno_tb.Name = "kontakt_meno_tb";
             this.kontakt_meno_tb.Size = new System.Drawing.Size(178, 20);
             this.kontakt_meno_tb.TabIndex = 8;
-            this.kontakt_meno_tb.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // kontakt_priezvisko_tb
             // 
@@ -111,54 +117,118 @@
             this.kontakt_priezvisko_tb.Size = new System.Drawing.Size(178, 20);
             this.kontakt_priezvisko_tb.TabIndex = 9;
             // 
-            // kontakt_adresa_tb
+            // kontakt_adresa_obec_tb
             // 
-            this.kontakt_adresa_tb.Location = new System.Drawing.Point(65, 89);
-            this.kontakt_adresa_tb.Multiline = true;
-            this.kontakt_adresa_tb.Name = "kontakt_adresa_tb";
-            this.kontakt_adresa_tb.Size = new System.Drawing.Size(178, 100);
-            this.kontakt_adresa_tb.TabIndex = 10;
+            this.kontakt_adresa_obec_tb.Location = new System.Drawing.Point(65, 119);
+            this.kontakt_adresa_obec_tb.Name = "kontakt_adresa_obec_tb";
+            this.kontakt_adresa_obec_tb.Size = new System.Drawing.Size(178, 20);
+            this.kontakt_adresa_obec_tb.TabIndex = 10;
             // 
             // kontakt_email_tb
             // 
-            this.kontakt_email_tb.Location = new System.Drawing.Point(65, 195);
+            this.kontakt_email_tb.Location = new System.Drawing.Point(65, 209);
             this.kontakt_email_tb.Name = "kontakt_email_tb";
             this.kontakt_email_tb.Size = new System.Drawing.Size(178, 20);
             this.kontakt_email_tb.TabIndex = 11;
             // 
             // kontakt_telc_tb
             // 
-            this.kontakt_telc_tb.Location = new System.Drawing.Point(65, 221);
+            this.kontakt_telc_tb.Location = new System.Drawing.Point(65, 235);
             this.kontakt_telc_tb.Name = "kontakt_telc_tb";
             this.kontakt_telc_tb.Size = new System.Drawing.Size(178, 20);
             this.kontakt_telc_tb.TabIndex = 12;
             // 
-            // cancelbtn
+            // cancel_btn
             // 
-            this.cancelbtn.Location = new System.Drawing.Point(261, 51);
-            this.cancelbtn.Name = "cancelbtn";
-            this.cancelbtn.Size = new System.Drawing.Size(75, 23);
-            this.cancelbtn.TabIndex = 13;
-            this.cancelbtn.Text = "button2";
-            this.cancelbtn.UseVisualStyleBackColor = true;
+            this.cancel_btn.Location = new System.Drawing.Point(261, 51);
+            this.cancel_btn.Name = "cancel_btn";
+            this.cancel_btn.Size = new System.Drawing.Size(75, 23);
+            this.cancel_btn.TabIndex = 13;
+            this.cancel_btn.Text = "button2";
+            this.cancel_btn.UseVisualStyleBackColor = true;
+            // 
+            // kontakt_adresa_ulica_l
+            // 
+            this.kontakt_adresa_ulica_l.AutoSize = true;
+            this.kontakt_adresa_ulica_l.Location = new System.Drawing.Point(27, 148);
+            this.kontakt_adresa_ulica_l.Name = "kontakt_adresa_ulica_l";
+            this.kontakt_adresa_ulica_l.Size = new System.Drawing.Size(35, 13);
+            this.kontakt_adresa_ulica_l.TabIndex = 14;
+            this.kontakt_adresa_ulica_l.Text = "label4";
+            // 
+            // kontakt_adresa_cislo_l
+            // 
+            this.kontakt_adresa_cislo_l.AutoSize = true;
+            this.kontakt_adresa_cislo_l.Location = new System.Drawing.Point(27, 174);
+            this.kontakt_adresa_cislo_l.Name = "kontakt_adresa_cislo_l";
+            this.kontakt_adresa_cislo_l.Size = new System.Drawing.Size(35, 13);
+            this.kontakt_adresa_cislo_l.TabIndex = 15;
+            this.kontakt_adresa_cislo_l.Text = "label5";
+            // 
+            // kontakt_adresa_ulica_tb
+            // 
+            this.kontakt_adresa_ulica_tb.Location = new System.Drawing.Point(65, 145);
+            this.kontakt_adresa_ulica_tb.Name = "kontakt_adresa_ulica_tb";
+            this.kontakt_adresa_ulica_tb.Size = new System.Drawing.Size(178, 20);
+            this.kontakt_adresa_ulica_tb.TabIndex = 16;
+            // 
+            // kontakt_adresa_cislo_tb
+            // 
+            this.kontakt_adresa_cislo_tb.Location = new System.Drawing.Point(65, 171);
+            this.kontakt_adresa_cislo_tb.Name = "kontakt_adresa_cislo_tb";
+            this.kontakt_adresa_cislo_tb.Size = new System.Drawing.Size(50, 20);
+            this.kontakt_adresa_cislo_tb.TabIndex = 17;
+           
+            // 
+            // kontakt_adresa_psc_tb
+            // 
+            this.kontakt_adresa_psc_tb.Location = new System.Drawing.Point(162, 171);
+            this.kontakt_adresa_psc_tb.Name = "kontakt_adresa_psc_tb";
+            this.kontakt_adresa_psc_tb.Size = new System.Drawing.Size(81, 20);
+            this.kontakt_adresa_psc_tb.TabIndex = 18;
+            // 
+            // kontakt_adresa_psc_l
+            // 
+            this.kontakt_adresa_psc_l.AutoSize = true;
+            this.kontakt_adresa_psc_l.Location = new System.Drawing.Point(121, 174);
+            this.kontakt_adresa_psc_l.Name = "kontakt_adresa_psc_l";
+            this.kontakt_adresa_psc_l.Size = new System.Drawing.Size(35, 13);
+            this.kontakt_adresa_psc_l.TabIndex = 19;
+            this.kontakt_adresa_psc_l.Text = "label6";
+            // 
+            // kontakt_adresa_l
+            // 
+            this.kontakt_adresa_l.AutoSize = true;
+            this.kontakt_adresa_l.Location = new System.Drawing.Point(27, 94);
+            this.kontakt_adresa_l.Name = "kontakt_adresa_l";
+            this.kontakt_adresa_l.Size = new System.Drawing.Size(35, 13);
+            this.kontakt_adresa_l.TabIndex = 20;
+            this.kontakt_adresa_l.Text = "label9";
             // 
             // KontaktOkno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(365, 263);
-            this.Controls.Add(this.cancelbtn);
+            this.ClientSize = new System.Drawing.Size(365, 294);
+            this.Controls.Add(this.kontakt_adresa_l);
+            this.Controls.Add(this.kontakt_adresa_psc_l);
+            this.Controls.Add(this.kontakt_adresa_psc_tb);
+            this.Controls.Add(this.kontakt_adresa_cislo_tb);
+            this.Controls.Add(this.kontakt_adresa_ulica_tb);
+            this.Controls.Add(this.kontakt_adresa_cislo_l);
+            this.Controls.Add(this.kontakt_adresa_ulica_l);
+            this.Controls.Add(this.cancel_btn);
             this.Controls.Add(this.kontakt_telc_tb);
             this.Controls.Add(this.kontakt_email_tb);
-            this.Controls.Add(this.kontakt_adresa_tb);
+            this.Controls.Add(this.kontakt_adresa_obec_tb);
             this.Controls.Add(this.kontakt_priezvisko_tb);
             this.Controls.Add(this.kontakt_meno_tb);
             this.Controls.Add(this.kontakt_telc_l);
             this.Controls.Add(this.kontakt_email_l);
-            this.Controls.Add(this.kontakt_adresa_l);
+            this.Controls.Add(this.kontakt_adresa_obec_l);
             this.Controls.Add(this.kontakt_priezvisko_l);
             this.Controls.Add(this.kontakt_meno_l);
-            this.Controls.Add(this.okbtn);
+            this.Controls.Add(this.ok_btn);
             this.Name = "KontaktOkno";
             this.Text = "KontaktOkno";
             this.ResumeLayout(false);
@@ -168,17 +238,24 @@
 
         #endregion
 
-        private System.Windows.Forms.Button okbtn;
+        private System.Windows.Forms.Button ok_btn;
         private System.Windows.Forms.Label kontakt_meno_l;
         private System.Windows.Forms.Label kontakt_priezvisko_l;
-        private System.Windows.Forms.Label kontakt_adresa_l;
+        private System.Windows.Forms.Label kontakt_adresa_obec_l;
         private System.Windows.Forms.Label kontakt_email_l;
         private System.Windows.Forms.Label kontakt_telc_l;
         private System.Windows.Forms.TextBox kontakt_meno_tb;
         private System.Windows.Forms.TextBox kontakt_priezvisko_tb;
-        private System.Windows.Forms.TextBox kontakt_adresa_tb;
+        private System.Windows.Forms.TextBox kontakt_adresa_obec_tb;
         private System.Windows.Forms.TextBox kontakt_email_tb;
         private System.Windows.Forms.TextBox kontakt_telc_tb;
-        private System.Windows.Forms.Button cancelbtn;
+        private System.Windows.Forms.Button cancel_btn;
+        private System.Windows.Forms.Label kontakt_adresa_ulica_l;
+        private System.Windows.Forms.Label kontakt_adresa_cislo_l;
+        private System.Windows.Forms.TextBox kontakt_adresa_ulica_tb;
+        private System.Windows.Forms.TextBox kontakt_adresa_cislo_tb;
+        private System.Windows.Forms.TextBox kontakt_adresa_psc_tb;
+        private System.Windows.Forms.Label kontakt_adresa_psc_l;
+        private System.Windows.Forms.Label kontakt_adresa_l;
     }
 }

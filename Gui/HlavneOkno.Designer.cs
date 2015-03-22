@@ -33,7 +33,11 @@
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.vytvorit_udalost_btn = new System.Windows.Forms.Button();
             this.zmazat_udalost_btn = new System.Windows.Forms.Button();
+            this.vytvorit_kontakt_btn = new System.Windows.Forms.Button();
+            this.kontaktyDataGridView = new System.Windows.Forms.DataGridView();
+            this.zmazat_kontakt_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.udalostiDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kontaktyDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // username_tb
@@ -92,12 +96,50 @@
             this.zmazat_udalost_btn.UseVisualStyleBackColor = true;
             this.zmazat_udalost_btn.Click += new System.EventHandler(this.zmazat_udalost_btn_Click);
             // 
+            // vytvorit_kontakt_btn
+            // 
+            this.vytvorit_kontakt_btn.Location = new System.Drawing.Point(446, 23);
+            this.vytvorit_kontakt_btn.Name = "vytvorit_kontakt_btn";
+            this.vytvorit_kontakt_btn.Size = new System.Drawing.Size(139, 31);
+            this.vytvorit_kontakt_btn.TabIndex = 5;
+            this.vytvorit_kontakt_btn.Text = "button3";
+            this.vytvorit_kontakt_btn.UseVisualStyleBackColor = true;
+            // 
+            // kontaktyDataGridView
+            // 
+            this.kontaktyDataGridView.AllowUserToAddRows = false;
+            this.kontaktyDataGridView.AllowUserToDeleteRows = false;
+            this.kontaktyDataGridView.AllowUserToResizeColumns = false;
+            this.kontaktyDataGridView.AllowUserToResizeRows = false;
+            this.kontaktyDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.kontaktyDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.kontaktyDataGridView.Location = new System.Drawing.Point(446, 70);
+            this.kontaktyDataGridView.MultiSelect = false;
+            this.kontaktyDataGridView.Name = "kontaktyDataGridView";
+            this.kontaktyDataGridView.RowHeadersVisible = false;
+            this.kontaktyDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.kontaktyDataGridView.Size = new System.Drawing.Size(300, 450);
+            this.kontaktyDataGridView.TabIndex = 1;
+            this.kontaktyDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.kontaktyDataGridView_CellContentClick);
+            // 
+            // zmazat_kontakt_btn
+            // 
+            this.zmazat_kontakt_btn.Location = new System.Drawing.Point(446, 535);
+            this.zmazat_kontakt_btn.Name = "zmazat_kontakt_btn";
+            this.zmazat_kontakt_btn.Size = new System.Drawing.Size(139, 31);
+            this.zmazat_kontakt_btn.TabIndex = 7;
+            this.zmazat_kontakt_btn.Text = "button4";
+            this.zmazat_kontakt_btn.UseVisualStyleBackColor = true;
+            // 
             // HlavneOkno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1324, 592);
+            this.Controls.Add(this.zmazat_kontakt_btn);
+            this.Controls.Add(this.kontaktyDataGridView);
+            this.Controls.Add(this.vytvorit_kontakt_btn);
             this.Controls.Add(this.zmazat_udalost_btn);
             this.Controls.Add(this.vytvorit_udalost_btn);
             this.Controls.Add(this.monthCalendar1);
@@ -109,6 +151,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.HlavneOkno_Load);
             ((System.ComponentModel.ISupportInitialize)(this.udalostiDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kontaktyDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -120,6 +163,9 @@
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Button vytvorit_udalost_btn;
         private System.Windows.Forms.Button zmazat_udalost_btn;
+        private System.Windows.Forms.Button vytvorit_kontakt_btn;
+        private System.Windows.Forms.DataGridView kontaktyDataGridView;
+        private System.Windows.Forms.Button zmazat_kontakt_btn;
 
     }
 }

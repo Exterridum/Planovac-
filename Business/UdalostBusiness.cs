@@ -96,7 +96,8 @@ namespace Business
         {
             try
             {
-                List<Udalost> zoznam = this.dao.GetAll( "WHERE [User] = @User ORDER BY [Cas] ASC", new List<SqlCeParameter>{ new SqlCeParameter("@User", user) } );
+                List<Udalost> zoznam = this.dao.GetAll("WHERE [User] = @User ORDER BY [Cas] ASC",
+                    new List<SqlCeParameter> {new SqlCeParameter("@User", user)});
                 
                 return zoznam;
             }

@@ -88,6 +88,87 @@ namespace Gui.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Číslo.
+        /// </summary>
+        internal static string Kontakt_adresa_cislo_l {
+            get {
+                return ResourceManager.GetString("Kontakt_adresa_cislo_l", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Adresa.
+        /// </summary>
+        internal static string Kontakt_adresa_l {
+            get {
+                return ResourceManager.GetString("Kontakt_adresa_l", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Obec.
+        /// </summary>
+        internal static string Kontakt_adresa_obec_l {
+            get {
+                return ResourceManager.GetString("Kontakt_adresa_obec_l", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PSČ.
+        /// </summary>
+        internal static string Kontakt_adresa_psc_l {
+            get {
+                return ResourceManager.GetString("Kontakt_adresa_psc_l", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ulica.
+        /// </summary>
+        internal static string Kontakt_adresa_ulica_l {
+            get {
+                return ResourceManager.GetString("Kontakt_adresa_ulica_l", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        internal static string Kontakt_email_l {
+            get {
+                return ResourceManager.GetString("Kontakt_email_l", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Meno.
+        /// </summary>
+        internal static string Kontakt_meno_l {
+            get {
+                return ResourceManager.GetString("Kontakt_meno_l", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Priezvisko.
+        /// </summary>
+        internal static string Kontakt_priezvisko_l {
+            get {
+                return ResourceManager.GetString("Kontakt_priezvisko_l", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Telefon.
+        /// </summary>
+        internal static string Kontakt_telc_l {
+            get {
+                return ResourceManager.GetString("Kontakt_telc_l", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nastala chyba.
         /// </summary>
         internal static string NastChyba {
@@ -124,11 +205,29 @@ namespace Gui.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Vytvoriť kontakt.
+        /// </summary>
+        internal static string TlacVytvKontakt {
+            get {
+                return ResourceManager.GetString("TlacVytvKontakt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Vytvoriť udalosť.
         /// </summary>
         internal static string TlacVytvUdalost {
             get {
                 return ResourceManager.GetString("TlacVytvUdalost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zmazať kontakt.
+        /// </summary>
+        internal static string TlacZmazKontakt {
+            get {
+                return ResourceManager.GetString("TlacZmazKontakt", resourceCulture);
             }
         }
         

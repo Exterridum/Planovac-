@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlServerCe;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,7 @@ namespace Business
         public KontaktBusiness()
         {
             this.dao = new KontaktDao();
+            //
         }
 
         /// <summary>
@@ -30,7 +32,16 @@ namespace Business
         /// <returns>id zaznamu</returns>
         public long ZapisZaznamDoDB(Kontakt dto)
         {
-            throw new NotImplementedException();
+            try
+            {
+                long id = this.dao.Insert(dto);
+                return id;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
         }
 
         /// <summary>
@@ -39,7 +50,14 @@ namespace Business
         /// <param name="dto">objekt dto</param>
         public void ZmenZaznamVDB(Kontakt dto)
         {
-            throw new NotImplementedException();
+            try
+            {
+                this.dao.Update(dto);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         /// <summary>
@@ -48,7 +66,15 @@ namespace Business
         /// <param name="dto">objekt dto</param>
         public void VymazZaznamZDB(Kontakt dto)
         {
-            throw new NotImplementedException();
+            try
+            {
+                this.dao.Delete(dto);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
         }
 
         /// <summary>
@@ -58,7 +84,17 @@ namespace Business
         /// <returns>Vracia zoznam kontaktov</returns>
         public List<Kontakt> ZiskajVsetkyZaznamyUzivatela(string user)
         {
-            throw new NotImplementedException();
+            try
+            {
+                List<Kontakt> kontakty = this.dao.GetAll("WHERE [User] = @User ORDER BY [Priezvisko] ASC",
+                    new List<SqlCeParameter> {new SqlCeParameter("@User", user)});
+                return kontakty;
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
         }
 
         /// <summary>
@@ -68,7 +104,15 @@ namespace Business
         /// <returns>Kontakt z DB</returns>
         public Kontakt ZiskajZaznam(long id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return this.dao.Get(id);
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
         }
     }
 }

@@ -126,6 +126,33 @@
   <data name="Info" xml:space="preserve">
     <value>Info</value>
   </data>
+  <data name="Kontakt_adresa_cislo_l" xml:space="preserve">
+    <value>Číslo</value>
+  </data>
+  <data name="Kontakt_adresa_l" xml:space="preserve">
+    <value>Adresa</value>
+  </data>
+  <data name="Kontakt_adresa_obec_l" xml:space="preserve">
+    <value>Obec</value>
+  </data>
+  <data name="Kontakt_adresa_psc_l" xml:space="preserve">
+    <value>PSČ</value>
+  </data>
+  <data name="Kontakt_adresa_ulica_l" xml:space="preserve">
+    <value>Ulica</value>
+  </data>
+  <data name="Kontakt_email_l" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Kontakt_meno_l" xml:space="preserve">
+    <value>Meno</value>
+  </data>
+  <data name="Kontakt_priezvisko_l" xml:space="preserve">
+    <value>Priezvisko</value>
+  </data>
+  <data name="Kontakt_telc_l" xml:space="preserve">
+    <value>Telefon</value>
+  </data>
   <data name="NastChyba" xml:space="preserve">
     <value>Nastala chyba</value>
   </data>
@@ -138,8 +165,14 @@
   <data name="Priorita" xml:space="preserve">
     <value>Priorita</value>
   </data>
+  <data name="TlacVytvKontakt" xml:space="preserve">
+    <value>Vytvoriť kontakt</value>
+  </data>
   <data name="TlacVytvUdalost" xml:space="preserve">
     <value>Vytvoriť udalosť</value>
+  </data>
+  <data name="TlacZmazKontakt" xml:space="preserve">
+    <value>Zmazať kontakt</value>
   </data>
   <data name="TlacZmazUdalost" xml:space="preserve">
     <value>Zmazať udalosť</value>

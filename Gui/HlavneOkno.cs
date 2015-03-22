@@ -38,6 +38,11 @@ namespace Gui
             get { return udalostiDataGridView; }
         }
 
+        public DataGridView KontaktyDataGridView
+        {
+            get { return kontaktyDataGridView; }
+        }
+
         /// <summary>
         /// Meno pouzivatela Windows
         /// </summary>
@@ -66,6 +71,9 @@ namespace Gui
             this.Text = Resources.HlavneOknoNazov;
             this.zmazat_udalost_btn.Text = Resources.TlacZmazUdalost;
             this.vytvorit_udalost_btn.Text = Resources.TlacVytvUdalost;
+
+            this.zmazat_kontakt_btn.Text = Resources.TlacZmazKontakt;
+            this.vytvorit_kontakt_btn.Text = Resources.TlacVytvKontakt;
 
             // Inicializujem data gridy
             InicializujUdalostiDgv();
@@ -140,7 +148,7 @@ namespace Gui
             h_chBox.Location = new Point(rect.Location.X + 3, rect.Location.Y + 3);
 
             // pridam event handler
-            h_chBox.CheckedChanged += new EventHandler(h_chBox_CheckedChanged);
+            h_chBox.CheckedChanged += new EventHandler(udalosti_h_chBox_CheckedChanged);
 
             // pridam check box do datagrid view
             this.udalostiDataGridView.Controls.Add(h_chBox);
@@ -171,7 +179,7 @@ namespace Gui
         /// </summary>
         /// <param name="sender">odosielatel event-u</param>
         /// <param name="e">event parameter</param>
-        private void h_chBox_CheckedChanged(object sender, EventArgs e)
+        private void udalosti_h_chBox_CheckedChanged(object sender, EventArgs e)
         {
             ZaskrtniOdskrtniVsetkyCheckBoxy(udalostiDataGridView, (CheckBox) sender);
         }        
@@ -318,6 +326,189 @@ namespace Gui
         /* ****************************************************************************************** */
         /* ****************************************************************************************** */
         /* ****************************************************************************************** */
+
+
+        /* ********************************************************************************************/
+        /* 2. Kontakty DataGridView********************************************************************************************/
+        /* ********************************************************************************************/
+
+        /// <summary>
+        /// Inicializuje DataGridView Udalosti
+        /// </summary>
+        private void InicializujKontaktyDgv()
+        {
+            //---------------------------------------------------------------------
+            // 1. Nastavujem DataGridView                                    
+            //---------------------------------------------------------------------
+            kontaktyDataGridView.AutoSize = false;
+            kontaktyDataGridView.Width = 340;
+            kontaktyDataGridView.AutoGenerateColumns = false;
+
+            //---------------------------------------------------------------------
+            // 2. Pridam rucne stplce do DataGridView
+            //---------------------------------------------------------------------
+            // stlpec s farebnym oznacovanim kontakty
+            DataGridViewColumn column_0 = new DataGridViewTextBoxColumn();
+            column_0.Width = 15;
+            column_0.ReadOnly = true;
+            kontaktyDataGridView.Columns.Add(column_0);
+
+            // checkbox column na mazanie
+            DataGridViewCheckBoxColumn column_1 = new DataGridViewCheckBoxColumn();
+            column_1.ValueType = typeof(bool);
+            column_1.Width = 20;
+            column_1.ReadOnly = false;
+            kontaktyDataGridView.Columns.Add(column_1);
+
+            // stlpec meno
+            DataGridViewColumn column_2 = new DataGridViewTextBoxColumn();
+            column_2.DataPropertyName = Resources.Kontakt_meno_l;
+            column_2.Name = Resources.Kontakt_meno_l;
+            column_2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            column_2.MinimumWidth = 170;
+            column_2.FillWeight = 100;
+            column_2.ReadOnly = true;
+            kontaktyDataGridView.Columns.Add(column_2);
+
+            // stlpec Priezvisko
+            DataGridViewColumn column_3 = new DataGridViewTextBoxColumn();
+            column_2.DataPropertyName = Resources.Kontakt_priezvisko_l;
+            column_2.Name = Resources.Kontakt_priezvisko_l;
+            column_2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            column_2.MinimumWidth = 170;
+            column_2.FillWeight = 100;
+            column_2.ReadOnly = true;
+            kontaktyDataGridView.Columns.Add(column_3);
+
+            // Header check box na oznacenie vsetkych zaznamov
+            CheckBox h_chBox = new CheckBox();
+            h_chBox.Name = "header_checkbox";
+
+            // ziskam zobrazovaci obdlznik header bunky
+            Rectangle rect = this.kontaktyDataGridView.GetCellDisplayRectangle(1, -1, true);
+            h_chBox.Size = new Size(13, 13);
+
+            // nastavim poziciu check boxu napevno
+            h_chBox.Location = new Point(rect.Location.X + 3, rect.Location.Y + 3);
+
+            // pridam event handler
+            h_chBox.CheckedChanged += new EventHandler(kontakty_h_chBox_CheckedChanged);
+
+            // pridam check box do datagrid view
+            this.kontaktyDataGridView.Controls.Add(h_chBox);
+
+            //---------------------------------------------------------------------
+            // 3. Vytvorim binding source a pripojim k data source DataGridView
+            //---------------------------------------------------------------------
+            RefreshDataGrid<Kontakt>(kontaktyDataGridView, new KontaktBusiness());
+        }
+
+       /// <summary>
+        /// Event handler - zmena zaskrtnutia checkboxu
+        /// Oznacenie vsetkych checkboxov v data gride pre ucely mazania
+        /// </summary>
+        /// <param name="sender">odosielatel event-u</param>
+        /// <param name="e">event parameter</param>
+        private void kontakty_h_chBox_CheckedChanged(object sender, EventArgs e)
+        {
+            ZaskrtniOdskrtniVsetkyCheckBoxy(kontaktyDataGridView, (CheckBox)sender);
+        }
+
+        /// <summary>
+        /// Event handler - formatovanie bunky
+        /// --------------------------------------------------------------------------------------------
+        /// ----!!!!!! Formatovanie buniek data gridu !!!!!!--------------------------------------------
+        /// --------------------------------------------------------------------------------------------
+        /// zabezpecuje farebne odlisenie kontakty, farebne oznacenie priority
+        /// event sa spusta vzdy pred vykreslenim bunky, urobil som to tak preto aby som mal kompletnu kontrolu nad formatovanim buniek
+        /// (mozem dynamicky menit farbu pozadia bunky, farbu pozadia ked sa bunka oznaci (selected) atd...)
+        /// </summary>
+        /// <param name="sender">odosielatel event-u</param>
+        /// <param name="e">event parameter</param>
+        private void kontaktyDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // ! defaultne nastavenie zafarbenia bunky dalej v kode mozem ovveride-nut defaultne nastavenie !
+            this.kontaktyDataGridView.DefaultCellStyle.BackColor = Color.White;
+            this.kontaktyDataGridView.DefaultCellStyle.ForeColor = Color.Black;
+            this.kontaktyDataGridView.DefaultCellStyle.SelectionBackColor = SystemColors.Highlight;
+            this.kontaktyDataGridView.DefaultCellStyle.SelectionForeColor = Color.White;
+        }
+
+        /// <summary>
+        /// Event handler - vstup kurzora mysi do datagridview
+        /// Ked kurzor vojde do data gridu - focus na data grid
+        /// </summary>
+        /// <param name="sender">odosielatel event-u</param>
+        /// <param name="e">event parameter</param>
+        private void kontaktyDataGridView_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            this.kontaktyDataGridView.Focus();
+        }
+
+        /// <summary>
+        /// Event handler - kliknutie na bunku
+        /// Kliknutie na riadok - upravit Kontakt (zobrazenie detailu kontakty)
+        /// </summary>
+        /// <param name="sender">odosielatel event-u</param>
+        /// <param name="e">event parameter</param>
+        private void kontaktyDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // ak nebolo kliknute na column header ani na stplec 0 a 1
+            if (e.RowIndex != -1 && e.ColumnIndex != 0 && e.ColumnIndex != 1)
+            {
+                // ziskam objekt
+                Kontakt k = (Kontakt)kontaktyDataGridView.SelectedRows[0].DataBoundItem;
+
+                UdalostOkno okno = new UdalostOkno(k.Id);
+
+                // odznacim header check box ak bol zaskrtnuty
+                if (((CheckBox)this.kontaktyDataGridView.Controls["header_checkbox"]).Checked)
+                {
+                    ((CheckBox)this.kontaktyDataGridView.Controls["header_checkbox"]).Checked = false;
+                }
+
+                // otvorim detail
+                okno.ShowDialog(this);
+            }
+        }
+
+        /// <summary>
+        /// Event handler - kliknutie na tlacitko
+        /// Kliknutie na tlacitko zmazat kontakt
+        /// </summary>
+        /// <param name="sender">odosielatel event-u</param>
+        /// <param name="e">event parameter</param>
+        private void zmazat_kontakt_btn_Click(object sender, EventArgs e)
+        {
+            ZmazVybraneZaznamyVDataGride<Kontakt>(kontaktyDataGridView, new KontaktBusiness());
+
+            // odznacim header check box
+            ((CheckBox)this.kontaktyDataGridView.Controls["header_checkbox"]).Checked = false;
+        }
+
+        /// <summary>
+        /// Event handler - kliknutie na tlacitko
+        /// Kliknutie na tlacitko vytvorit kontakt
+        /// </summary>
+        /// <param name="sender">odosielatel event-u</param>
+        /// <param name="e">event parameter</param>
+        private void vytvorit_kontakt_btn_Click(object sender, EventArgs e)
+        {
+            KontaktOkno okno = new KontaktOkno();
+
+            // odznacim header check box ak bol zaskrtnuty
+            if (((CheckBox)this.kontaktyDataGridView.Controls["header_checkbox"]).Checked)
+            {
+                ((CheckBox)this.kontaktyDataGridView.Controls["header_checkbox"]).Checked = false;
+            }
+
+            okno.ShowDialog(this);
+        }
+
+        /* ********************************************************************************************/
+        /* ********************************************************************************************/
+        /* ********************************************************************************************/
+
 
         /* ****************************************************************************************** */
         /* **** Spolocne metody pre DataGridy ******************************************************* */
@@ -471,6 +662,11 @@ namespace Gui
                     }
                 }
             }
+        }
+
+        private void kontaktyDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         /* ****************************************************************************************** */
