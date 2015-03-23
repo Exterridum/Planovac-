@@ -43,6 +43,11 @@ namespace Gui
             get { return kontaktyDataGridView; }
         }
 
+        public DataGridView PoznamkyDataGridView
+        {
+            get { return poznamkyDataGridView; }
+        }
+
         /// <summary>
         /// Meno pouzivatela Windows
         /// </summary>
@@ -75,9 +80,15 @@ namespace Gui
             this.zmazat_kontakt_btn.Text = Resources.TlacZmazKontakt;
             this.vytvorit_kontakt_btn.Text = Resources.TlacVytvKontakt;
 
+            this.zmazat_poznamku_btn.Text = Resources.TlacZmazPoznamku;
+            this.vytvorit_poznamku_btn.Text = Resources.TlacVytvPoznamku;
+
+
             // Inicializujem data gridy
             InicializujUdalostiDgv();
             InicializujKontaktyDgv();
+            InicializujPoznamkyDgv();
+            
         }
 
         /* ****************************************************************************************** */
@@ -655,10 +666,159 @@ namespace Gui
             }
         }
 
-        private void kontaktyDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+         /* ********************************************************************************************/
+         /* 3. Poznamky DataGridView********************************************************************************************/
+         /* ********************************************************************************************/
 
+       
+
+        private void InicializujPoznamkyDgv()
+        {
+            //---------------------------------------------------------------------
+            // 1. Nastavujem DataGridView                                    
+            //---------------------------------------------------------------------
+            poznamkyDataGridView.AutoSize = false;
+            poznamkyDataGridView.Width = 340;
+            poznamkyDataGridView.AutoGenerateColumns = false;
+
+            //---------------------------------------------------------------------
+            // 2. Pridam rucne stplce do DataGridView
+            //---------------------------------------------------------------------
+            // stlpec s farebnym oznacovanim kontakty
+            DataGridViewColumn column_0 = new DataGridViewTextBoxColumn();
+            column_0.Width = 15;
+            column_0.ReadOnly = true;
+            poznamkyDataGridView.Columns.Add(column_0);
+
+            // checkbox column na mazanie
+            DataGridViewCheckBoxColumn column_1 = new DataGridViewCheckBoxColumn();
+            column_1.ValueType = typeof(bool);
+            column_1.Width = 20;
+            column_1.ReadOnly = false;
+            poznamkyDataGridView.Columns.Add(column_1);
+
+            // stlpec meno
+            DataGridViewColumn column_2 = new DataGridViewTextBoxColumn();
+            column_2.DataPropertyName = Resources.Kontakt_meno_l;
+            column_2.Name = Resources.Kontakt_meno_l;
+            column_2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            column_2.MinimumWidth = 170;
+            column_2.FillWeight = 100;
+            column_2.ReadOnly = true;
+            poznamkyDataGridView.Columns.Add(column_2);
+
+            // stlpec Priezvisko
+            DataGridViewColumn column_3 = new DataGridViewTextBoxColumn();
+            column_2.DataPropertyName = Resources.Kontakt_priezvisko_l;
+            column_2.Name = Resources.Kontakt_priezvisko_l;
+            column_2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            column_2.MinimumWidth = 170;
+            column_2.FillWeight = 100;
+            column_2.ReadOnly = true;
+            poznamkyDataGridView.Columns.Add(column_3);
+
+            // Header check box na oznacenie vsetkych zaznamov
+            CheckBox h_chBox = new CheckBox();
+            h_chBox.Name = "header_checkbox";
+
+            // ziskam zobrazovaci obdlznik header bunky
+            Rectangle rect = this.poznamkyDataGridView.GetCellDisplayRectangle(1, -1, true);
+            h_chBox.Size = new Size(13, 13);
+
+            // nastavim poziciu check boxu napevno
+            h_chBox.Location = new Point(rect.Location.X + 3, rect.Location.Y + 3);
+
+            // pridam event handler
+            h_chBox.CheckedChanged += new EventHandler(poznamky_h_chBox_CheckedChanged);
+
+            // pridam check box do datagrid view
+            this.poznamkyDataGridView.Controls.Add(h_chBox);
+
+            //---------------------------------------------------------------------
+            // 3. Vytvorim binding source a pripojim k data source DataGridView
+            //---------------------------------------------------------------------
+            RefreshDataGrid<Poznamka>(poznamkyDataGridView, new PoznamkyBussines());
         }
+
+
+        private void vytvorit_poznamku_btn_Click(object sender, EventArgs e)
+        {
+            PoznamkyOkno okno = new PoznamkyOkno();
+
+            // odznacim header check box ak bol zaskrtnuty
+            if (((CheckBox)this.poznamkyDataGridView.Controls["header_checkbox"]).Checked)
+            {
+                ((CheckBox)this.poznamkyDataGridView.Controls["header_checkbox"]).Checked = false;
+            }
+
+            okno.ShowDialog(this);
+        }
+
+        
+
+        private void zmazat_poznamku_btn_Click(object sender, EventArgs e)
+        {
+            ZmazVybraneZaznamyVDataGride<Poznamka>(poznamkyDataGridView, new PoznamkyBussines());
+
+            // odznacim header check box
+            ((CheckBox)this.poznamkyDataGridView.Controls["header_checkbox"]).Checked = false;
+        }
+
+        
+
+        private void poznamky_h_chBox_CheckedChanged(object sender, EventArgs e)
+        {
+            ZaskrtniOdskrtniVsetkyCheckBoxy(poznamkyDataGridView, (CheckBox)sender);
+        }
+
+
+        private void poznamkyDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // ! defaultne nastavenie zafarbenia bunky dalej v kode mozem ovveride-nut defaultne nastavenie !
+            this.poznamkyDataGridView.DefaultCellStyle.BackColor = Color.White;
+            this.poznamkyDataGridView.DefaultCellStyle.ForeColor = Color.Black;
+            this.poznamkyDataGridView.DefaultCellStyle.SelectionBackColor = SystemColors.Highlight;
+            this.poznamkyDataGridView.DefaultCellStyle.SelectionForeColor = Color.White;
+        }
+
+        /// <summary>
+        /// Event handler - vstup kurzora mysi do datagridview
+        /// Ked kurzor vojde do data gridu - focus na data grid
+        /// </summary>
+        /// <param name="sender">odosielatel event-u</param>
+        /// <param name="e">event parameter</param>
+        private void poznamkyDataGridView_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            this.poznamkyDataGridView.Focus();
+        }
+
+        /// <summary>
+        /// Event handler - kliknutie na bunku
+        /// Kliknutie na riadok - upravit Kontakt (zobrazenie detailu kontakty)
+        /// </summary>
+        /// <param name="sender">odosielatel event-u</param>
+        /// <param name="e">event parameter</param>
+        private void poznamkyDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // ak nebolo kliknute na column header ani na stplec 0 a 1
+            if (e.RowIndex != -1 && e.ColumnIndex != 0 && e.ColumnIndex != 1)
+            {
+                // ziskam objekt
+                Poznamka k = (Poznamka)poznamkyDataGridView.SelectedRows[0].DataBoundItem;
+
+                PoznamkyOkno okno = new PoznamkyOkno(k.Id);
+
+                // odznacim header check box ak bol zaskrtnuty
+                if (((CheckBox)this.poznamkyDataGridView.Controls["header_checkbox"]).Checked)
+                {
+                    ((CheckBox)this.poznamkyDataGridView.Controls["header_checkbox"]).Checked = false;
+                }
+
+                // otvorim detail
+                okno.ShowDialog(this);
+            }
+        }
+
 
         /* ****************************************************************************************** */
         /* ****************************************************************************************** */
