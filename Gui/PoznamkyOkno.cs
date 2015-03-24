@@ -68,6 +68,8 @@ namespace Gui
                     dto.Nazov = nazov_textBox.Text;
                     dto.Obsah = obsah_textBox.Text;
 
+                    kb.ZmenZaznamVDB(dto);
+
                     this.Close();
                 }
                 else
@@ -94,6 +96,20 @@ namespace Gui
                 sb.AppendLine("");
                 sb.AppendLine("      - " + Resources.Nazov);
                 MessageBox.Show(sb.ToString(), Resources.Info, MessageBoxButtons.OK, MessageBoxIcon.Information);*/
+            }
+        }
+
+
+        private void PoznamkyOkno_FormClosed(object sender, EventArgs e)
+        {
+            if (dto != null)
+            {
+                var parent = (HlavneOkno)this.Owner;
+                parent.RefreshDataGrid<Poznamka>(parent.PoznamkyDataGridView, kb);
+
+                int row_index = parent.OznacZaznamSIdVDataGride<Poznamka>(parent.PoznamkyDataGridView, dto.Id);
+
+                parent.ScrollujDataGridKZaznamu(parent.PoznamkyDataGridView, row_index);
             }
         }
     }

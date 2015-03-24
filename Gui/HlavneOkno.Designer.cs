@@ -68,9 +68,9 @@
             this.udalostiDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.udalostiDataGridView.Size = new System.Drawing.Size(300, 450);
             this.udalostiDataGridView.TabIndex = 1;
-            this.udalostiDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.kontaktyDataGridView_CellClick);
-            this.udalostiDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.kontaktyDataGridView_CellFormatting);
-            this.udalostiDataGridView.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.kontaktyDataGridView_CellMouseEnter);
+            this.udalostiDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.udalostiDataGridView_CellClick);
+            this.udalostiDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.udalostiDataGridView_CellFormatting);
+            this.udalostiDataGridView.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.udalostiDataGridView_CellMouseEnter);
             // 
             // monthCalendar1
             // 
@@ -122,10 +122,13 @@
             this.kontaktyDataGridView.MultiSelect = false;
             this.kontaktyDataGridView.Name = "kontaktyDataGridView";
             this.kontaktyDataGridView.RowHeadersVisible = false;
+            this.kontaktyDataGridView.RowTemplate.Height = 50;
             this.kontaktyDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.kontaktyDataGridView.Size = new System.Drawing.Size(300, 450);
             this.kontaktyDataGridView.TabIndex = 1;
-            //this.kontaktyDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.kontaktyDataGridView_CellContentClick_1);
+            this.kontaktyDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.kontaktyDataGridView_CellClick);
+            this.kontaktyDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.kontaktyDataGridView_CellFormatting);
+            this.kontaktyDataGridView.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.kontaktyDataGridView_CellMouseEnter);
             // 
             // zmazat_kontakt_btn
             // 
@@ -159,10 +162,13 @@
             this.poznamkyDataGridView.MultiSelect = false;
             this.poznamkyDataGridView.Name = "poznamkyDataGridView";
             this.poznamkyDataGridView.RowHeadersVisible = false;
+            this.poznamkyDataGridView.RowTemplate.Height = 50;
             this.poznamkyDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.poznamkyDataGridView.Size = new System.Drawing.Size(300, 450);
             this.poznamkyDataGridView.TabIndex = 8;
-           // this.poznamkyDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.poznamkyDataGridView_CellContentClick);
+            this.poznamkyDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.poznamkyDataGridView_CellClick);
+            this.poznamkyDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.poznamkyDataGridView_CellFormatting);
+            this.poznamkyDataGridView.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.poznamkyDataGridView_CellMouseEnter);
             // 
             // vytvorit_poznamku_btn
             // 

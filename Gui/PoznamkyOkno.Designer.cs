@@ -52,6 +52,7 @@
             this.nazov_label.Size = new System.Drawing.Size(35, 13);
             this.nazov_label.TabIndex = 1;
             this.nazov_label.Text = "label1";
+            this.nazov_label.Text = Gui.Properties.Resources.Poznamka_Nazov_label;
             //this.nazov_label.Click += new System.EventHandler(this.nazov_label_Click);
             // 
             // obsah_textBox
@@ -70,6 +71,7 @@
             this.obsah_label.Size = new System.Drawing.Size(35, 13);
             this.obsah_label.TabIndex = 3;
             this.obsah_label.Text = "label1";
+            this.obsah_label.Text = Gui.Properties.Resources.Poznamka_Obsah_label;
             // 
             // ok_button_poznamky
             // 
@@ -79,7 +81,8 @@
             this.ok_button_poznamky.TabIndex = 4;
             this.ok_button_poznamky.Text = "button1";
             this.ok_button_poznamky.UseVisualStyleBackColor = true;
-            this.close_button_poznamky.Click += new System.EventHandler(this.ok_button_click);
+            this.ok_button_poznamky.Text = Gui.Properties.Resources.Ok_button_poznamky;
+            this.ok_button_poznamky.Click += new System.EventHandler(this.ok_button_click);
             
             // 
             // close_button_poznamky
@@ -91,6 +94,7 @@
             this.close_button_poznamky.Text = "button2";
             this.close_button_poznamky.UseVisualStyleBackColor = true;
             this.close_button_poznamky.Click += new System.EventHandler(this.close_button_click);
+            this.close_button_poznamky.Text = Gui.Properties.Resources.ZrusitBtn;
             // 
             // PoznamkyOkno
             // 
@@ -103,8 +107,10 @@
             this.Controls.Add(this.obsah_textBox);
             this.Controls.Add(this.nazov_label);
             this.Controls.Add(this.nazov_textBox);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PoznamkyOkno_FormClosed);
             this.Name = "PoznamkyOkno";
-            this.Text = "PoznamkyOkno";
+            this.Text = "Poznamky udalosť";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ResumeLayout(false);
             this.PerformLayout();
 

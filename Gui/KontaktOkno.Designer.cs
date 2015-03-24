@@ -208,6 +208,7 @@ namespace Gui
             this.kontakt_adresa_l.Size = new System.Drawing.Size(35, 13);
             this.kontakt_adresa_l.TabIndex = 20;
             this.kontakt_adresa_l.Text = "label9";
+            this.kontakt_adresa_l.Text = Gui.Properties.Resources.Kontakt_adresa_l;
             // 
             // KontaktOkno
             // 
@@ -234,7 +235,7 @@ namespace Gui
             this.Controls.Add(this.kontakt_meno_l);
             this.Controls.Add(this.ok_btn);
             this.Name = "KontaktOkno";
-            this.Text = "KontaktOkno";
+            this.Text = "Kontakt udalosť";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.KontaktOkno_FormClosed);

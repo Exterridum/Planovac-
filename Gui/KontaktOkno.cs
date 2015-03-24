@@ -82,6 +82,7 @@ namespace Gui
                     dto.Email = kontakt_email_tb.Text;
                     dto.Telc = kontakt_telc_tb.Text;
 
+                    kb.ZmenZaznamVDB(dto);
                     this.Close();
                 }
                 else

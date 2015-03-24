@@ -169,10 +169,10 @@
     <value>OK</value>
   </data>
   <data name="Poznamka_Nazov_label" xml:space="preserve">
-    <value>Nazov</value>
+    <value>Názov</value>
   </data>
   <data name="Poznamka_Obsah_label" xml:space="preserve">
-    <value>Nazov</value>
+    <value>Obsah</value>
   </data>
   <data name="Priorita" xml:space="preserve">
     <value>Priorita</value>

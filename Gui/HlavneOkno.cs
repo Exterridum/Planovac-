@@ -373,23 +373,23 @@ namespace Gui
             kontaktyDataGridView.Columns.Add(column_1);
 
             // stlpec meno
-            DataGridViewColumn column_2 = new DataGridViewTextBoxColumn();
+            /*DataGridViewColumn column_2 = new DataGridViewTextBoxColumn();
             column_2.DataPropertyName = Resources.Kontakt_meno_l;
             column_2.Name = Resources.Kontakt_meno_l;
             column_2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             column_2.MinimumWidth = 170;
             column_2.FillWeight = 100;
             column_2.ReadOnly = true;
-            kontaktyDataGridView.Columns.Add(column_2);
+            kontaktyDataGridView.Columns.Add(column_2);*/
 
             // stlpec Priezvisko
             DataGridViewColumn column_3 = new DataGridViewTextBoxColumn();
-            column_2.DataPropertyName = Resources.Kontakt_priezvisko_l;
-            column_2.Name = Resources.Kontakt_priezvisko_l;
-            column_2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            column_2.MinimumWidth = 170;
-            column_2.FillWeight = 100;
-            column_2.ReadOnly = true;
+            column_3.DataPropertyName = Resources.Kontakt_priezvisko_l;
+            column_3.Name = Resources.Kontakt_priezvisko_l;
+            column_3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            column_3.MinimumWidth = 170;
+            column_3.FillWeight = 100;
+            column_3.ReadOnly = true;
             kontaktyDataGridView.Columns.Add(column_3);
 
             // Header check box na oznacenie vsetkych zaznamov
@@ -648,6 +648,8 @@ namespace Gui
                 * bez tochto nastavenia sa stavalo ze sa oznacili/odznacili vsetky chack boxy 
                 * okrem toho vo vyznacenom riadku */
                 udalostiDataGridView.SelectedRows[0].ReadOnly = false;
+                kontaktyDataGridView.SelectedRows[0].ReadOnly = false;
+                poznamkyDataGridView.SelectedRows[0].ReadOnly = false;
 
                 if (headerCheckBox.Checked)
                 {
@@ -684,7 +686,7 @@ namespace Gui
             //---------------------------------------------------------------------
             // 2. Pridam rucne stplce do DataGridView
             //---------------------------------------------------------------------
-            // stlpec s farebnym oznacovanim kontakty
+            // stlpec s farebnym oznacovanim poznamky
             DataGridViewColumn column_0 = new DataGridViewTextBoxColumn();
             column_0.Width = 15;
             column_0.ReadOnly = true;
@@ -697,24 +699,16 @@ namespace Gui
             column_1.ReadOnly = false;
             poznamkyDataGridView.Columns.Add(column_1);
 
-            // stlpec meno
-            DataGridViewColumn column_2 = new DataGridViewTextBoxColumn();
-            column_2.DataPropertyName = Resources.Kontakt_meno_l;
-            column_2.Name = Resources.Kontakt_meno_l;
-            column_2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            column_2.MinimumWidth = 170;
-            column_2.FillWeight = 100;
-            column_2.ReadOnly = true;
-            poznamkyDataGridView.Columns.Add(column_2);
+            
 
-            // stlpec Priezvisko
+            // stlpec Nazov
             DataGridViewColumn column_3 = new DataGridViewTextBoxColumn();
-            column_2.DataPropertyName = Resources.Kontakt_priezvisko_l;
-            column_2.Name = Resources.Kontakt_priezvisko_l;
-            column_2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            column_2.MinimumWidth = 170;
-            column_2.FillWeight = 100;
-            column_2.ReadOnly = true;
+            column_3.DataPropertyName = "Nazov";
+            column_3.Name = Resources.Poznamka_Nazov_label;
+            column_3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            column_3.MinimumWidth = 170;
+            column_3.FillWeight = 100;
+            column_3.ReadOnly = true;
             poznamkyDataGridView.Columns.Add(column_3);
 
             // Header check box na oznacenie vsetkych zaznamov

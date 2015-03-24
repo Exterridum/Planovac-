@@ -214,7 +214,7 @@ namespace Gui.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nazov.
+        ///   Looks up a localized string similar to Názov.
         /// </summary>
         internal static string Poznamka_Nazov_label {
             get {
@@ -223,7 +223,7 @@ namespace Gui.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Nazov.
+        ///   Looks up a localized string similar to Obsah.
         /// </summary>
         internal static string Poznamka_Obsah_label {
             get {
