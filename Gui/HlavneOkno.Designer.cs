@@ -165,7 +165,7 @@
             this.poznamkyDataGridView.RowTemplate.Height = 50;
             this.poznamkyDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.poznamkyDataGridView.Size = new System.Drawing.Size(300, 450);
-            this.poznamkyDataGridView.TabIndex = 8;
+            this.poznamkyDataGridView.TabIndex = 1;
             this.poznamkyDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.poznamkyDataGridView_CellClick);
             this.poznamkyDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.poznamkyDataGridView_CellFormatting);
             this.poznamkyDataGridView.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.poznamkyDataGridView_CellMouseEnter);

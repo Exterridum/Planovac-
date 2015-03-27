@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -39,7 +40,13 @@ namespace Gui
 
             this.kontakt_meno_tb.Text = dto.Meno;
             this.kontakt_priezvisko_tb.Text = dto.Priezvisko;
-            this.kontakt_adresa_obec_tb.Text = dto.Adresa;
+            string dtoAddress = dto.Adresa;
+            string[] lineAdress = dtoAddress.Split(' ');
+            Console.WriteLine(lineAdress.Count());
+            this.kontakt_adresa_obec_tb.Text = lineAdress[0];
+            this.kontakt_adresa_ulica_tb.Text = lineAdress[1];
+            this.kontakt_adresa_cislo_tb.Text = lineAdress[2];
+            this.kontakt_adresa_psc_tb.Text = lineAdress[3];
             this.kontakt_email_tb.Text = dto.Email;
             this.kontakt_telc_tb.Text = dto.Telc;
 
@@ -50,7 +57,7 @@ namespace Gui
         {
             this.kontakt_meno_l.Text = Resources.Kontakt_meno_l + " :";
             this.kontakt_priezvisko_l.Text = Resources.Kontakt_priezvisko_l + " :";
-            this.kontakt_adresa_obec_l.Text = Resources.Kontakt_adresa_obec_l;
+            this.kontakt_adresa_l.Text = Resources.Kontakt_adresa_obec_l;
             this.kontakt_adresa_obec_l.Text = Resources.Kontakt_adresa_obec_l + " :";
             this.kontakt_adresa_ulica_l.Text = Resources.Kontakt_adresa_ulica_l + " :";
             this.kontakt_adresa_cislo_l.Text = Resources.Kontakt_adresa_cislo_l + " :";
@@ -67,16 +74,19 @@ namespace Gui
         {
             if (!String.IsNullOrEmpty(kontakt_meno_tb.Text))
             {
+                var sb = new StringBuilder();
+                sb.Append(kontakt_adresa_obec_tb.Text);
+                sb.Append(" ");
+                sb.Append(kontakt_adresa_ulica_tb.Text); 
+                sb.Append(" ");
+                sb.Append(kontakt_adresa_cislo_tb.Text);
+                sb.Append(" ");
+                sb.Append(kontakt_adresa_psc_tb.Text);
+
                 if (isUpdate)
                 {
                     dto.Meno = kontakt_meno_tb.Text;
                     dto.Priezvisko = kontakt_priezvisko_tb.Text;
-
-                    var sb = new StringBuilder();
-                    sb.AppendLine(kontakt_adresa_obec_tb.Text);
-                    sb.AppendLine(kontakt_adresa_ulica_tb.Text);
-                    sb.Append(", " + kontakt_adresa_cislo_tb.Text);
-                    sb.AppendLine(kontakt_adresa_psc_tb.Text);
 
                     dto.Adresa = sb.ToString();
                     dto.Email = kontakt_email_tb.Text;
@@ -87,17 +97,12 @@ namespace Gui
                 }
                 else
                 {
-                    var sb = new StringBuilder();
-                    sb.AppendLine(kontakt_adresa_obec_tb.Text);
-                    sb.AppendLine(kontakt_adresa_ulica_tb.Text);
-                    sb.Append(", " + kontakt_adresa_cislo_tb.Text);
-                    sb.AppendLine(kontakt_adresa_psc_tb.Text);
-
-                    dto = new Kontakt
+                   dto = new Kontakt
                     {
                         User = Environment.UserName,
                         Meno = kontakt_meno_tb.Text,
                         Priezvisko = kontakt_priezvisko_tb.Text,
+
                         Adresa = sb.ToString(),
                         Email = kontakt_email_tb.Text,
                         Telc = kontakt_telc_tb.Text,
