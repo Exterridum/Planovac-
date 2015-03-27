@@ -28,120 +28,89 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.obsah_label = new MetroFramework.Controls.MetroLabel();
-            this.nazov_label = new MetroFramework.Controls.MetroLabel();
             this.nazov_textBox = new System.Windows.Forms.TextBox();
+            this.nazov_label = new System.Windows.Forms.Label();
             this.obsah_textBox = new System.Windows.Forms.TextBox();
-            this.close_button_poznamky = new MetroFramework.Controls.MetroButton();
-            this.ok_button_poznamky = new MetroFramework.Controls.MetroButton();
+            this.obsah_label = new System.Windows.Forms.Label();
+            this.ok_button_poznamky = new System.Windows.Forms.Button();
+            this.close_button_poznamky = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // metroLabel1
-            // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel1.Location = new System.Drawing.Point(23, 22);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(184, 25);
-            this.metroLabel1.TabIndex = 28;
-            this.metroLabel1.Text = "Vytvorenie poznamky";
-            // 
-            // obsah_label
-            // 
-            this.obsah_label.Cursor = System.Windows.Forms.Cursors.Default;
-            this.obsah_label.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.obsah_label.Location = new System.Drawing.Point(23, 108);
-            this.obsah_label.Name = "obsah_label";
-            this.obsah_label.Size = new System.Drawing.Size(104, 28);
-            this.obsah_label.TabIndex = 27;
-            this.obsah_label.Text = "Popis udalosti";
-            this.obsah_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // nazov_label
-            // 
-            this.nazov_label.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.nazov_label.Location = new System.Drawing.Point(23, 67);
-            this.nazov_label.Name = "nazov_label";
-            this.nazov_label.Size = new System.Drawing.Size(56, 28);
-            this.nazov_label.TabIndex = 26;
-            this.nazov_label.Text = "Názov";
-            this.nazov_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // nazov_textBox
             // 
-            this.nazov_textBox.Font = new System.Drawing.Font("Open Sans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nazov_textBox.Location = new System.Drawing.Point(85, 67);
-            this.nazov_textBox.Multiline = true;
+            this.nazov_textBox.Location = new System.Drawing.Point(12, 47);
             this.nazov_textBox.Name = "nazov_textBox";
-            this.nazov_textBox.Size = new System.Drawing.Size(280, 28);
+            this.nazov_textBox.Size = new System.Drawing.Size(313, 20);
             this.nazov_textBox.TabIndex = 0;
+            //this.nazov_textBox.TextChanged += new System.EventHandler(this.nazov_textBox_TextChanged);
+            // 
+            // nazov_label
+            // 
+            this.nazov_label.AutoSize = true;
+            this.nazov_label.Location = new System.Drawing.Point(12, 31);
+            this.nazov_label.Name = "nazov_label";
+            this.nazov_label.Size = new System.Drawing.Size(35, 13);
+            this.nazov_label.TabIndex = 1;
+            this.nazov_label.Text = "label1";
+            this.nazov_label.Text = Gui.Properties.Resources.Poznamka_Nazov_label;
+            //this.nazov_label.Click += new System.EventHandler(this.nazov_label_Click);
             // 
             // obsah_textBox
             // 
-            this.obsah_textBox.BackColor = System.Drawing.Color.White;
-            this.obsah_textBox.Font = new System.Drawing.Font("Open Sans", 10F);
-            this.obsah_textBox.Location = new System.Drawing.Point(23, 138);
+            this.obsah_textBox.Location = new System.Drawing.Point(15, 97);
             this.obsah_textBox.Multiline = true;
             this.obsah_textBox.Name = "obsah_textBox";
-            this.obsah_textBox.Size = new System.Drawing.Size(342, 133);
-            this.obsah_textBox.TabIndex = 1;
+            this.obsah_textBox.Size = new System.Drawing.Size(310, 139);
+            this.obsah_textBox.TabIndex = 2;
             // 
-            // close_button_poznamky
+            // obsah_label
             // 
-            this.close_button_poznamky.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.close_button_poznamky.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.close_button_poznamky.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.close_button_poznamky.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.close_button_poznamky.Location = new System.Drawing.Point(93, 292);
-            this.close_button_poznamky.Name = "close_button_poznamky";
-            this.close_button_poznamky.Size = new System.Drawing.Size(73, 43);
-            this.close_button_poznamky.Style = MetroFramework.MetroColorStyle.Blue;
-            this.close_button_poznamky.TabIndex = 3;
-            this.close_button_poznamky.Text = "Zrušiť";
-            this.close_button_poznamky.UseCustomBackColor = true;
-            this.close_button_poznamky.UseCustomForeColor = true;
-            this.close_button_poznamky.UseMnemonic = false;
-            this.close_button_poznamky.UseSelectable = true;
-            this.close_button_poznamky.Click += new System.EventHandler(this.close_button_click);
+            this.obsah_label.AutoSize = true;
+            this.obsah_label.Location = new System.Drawing.Point(12, 81);
+            this.obsah_label.Name = "obsah_label";
+            this.obsah_label.Size = new System.Drawing.Size(35, 13);
+            this.obsah_label.TabIndex = 3;
+            this.obsah_label.Text = "label1";
+            this.obsah_label.Text = Gui.Properties.Resources.Poznamka_Obsah_label;
             // 
             // ok_button_poznamky
             // 
-            this.ok_button_poznamky.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.ok_button_poznamky.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ok_button_poznamky.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.ok_button_poznamky.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ok_button_poznamky.Location = new System.Drawing.Point(23, 292);
+            this.ok_button_poznamky.Location = new System.Drawing.Point(15, 253);
             this.ok_button_poznamky.Name = "ok_button_poznamky";
-            this.ok_button_poznamky.Size = new System.Drawing.Size(64, 43);
-            this.ok_button_poznamky.Style = MetroFramework.MetroColorStyle.Blue;
-            this.ok_button_poznamky.TabIndex = 2;
-            this.ok_button_poznamky.Text = "OK";
-            this.ok_button_poznamky.UseCustomBackColor = true;
-            this.ok_button_poznamky.UseCustomForeColor = true;
-            this.ok_button_poznamky.UseMnemonic = false;
-            this.ok_button_poznamky.UseSelectable = true;
+            this.ok_button_poznamky.Size = new System.Drawing.Size(125, 30);
+            this.ok_button_poznamky.TabIndex = 4;
+            this.ok_button_poznamky.Text = "button1";
+            this.ok_button_poznamky.UseVisualStyleBackColor = true;
+            this.ok_button_poznamky.Text = Gui.Properties.Resources.Ok_button_poznamky;
             this.ok_button_poznamky.Click += new System.EventHandler(this.ok_button_click);
+            
+            // 
+            // close_button_poznamky
+            // 
+            this.close_button_poznamky.Location = new System.Drawing.Point(200, 253);
+            this.close_button_poznamky.Name = "close_button_poznamky";
+            this.close_button_poznamky.Size = new System.Drawing.Size(125, 30);
+            this.close_button_poznamky.TabIndex = 5;
+            this.close_button_poznamky.Text = "button2";
+            this.close_button_poznamky.UseVisualStyleBackColor = true;
+            this.close_button_poznamky.Click += new System.EventHandler(this.close_button_click);
+            this.close_button_poznamky.Text = Gui.Properties.Resources.ZrusitBtn;
             // 
             // PoznamkyOkno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(390, 355);
+            this.ClientSize = new System.Drawing.Size(347, 310);
             this.Controls.Add(this.close_button_poznamky);
             this.Controls.Add(this.ok_button_poznamky);
-            this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.obsah_label);
+            this.Controls.Add(this.obsah_textBox);
             this.Controls.Add(this.nazov_label);
             this.Controls.Add(this.nazov_textBox);
-            this.Controls.Add(this.obsah_textBox);
-            this.Name = "PoznamkyOkno";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Poznamky udalosť";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PoznamkyOkno_FormClosed);
-            this.Load += new System.EventHandler(this.PoznamkyOkno_Load_1);
+            this.Name = "PoznamkyOkno";
+            this.Text = "Poznamky udalosť";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,12 +120,11 @@
 
         #endregion
 
-        private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroLabel obsah_label;
-        private MetroFramework.Controls.MetroLabel nazov_label;
         private System.Windows.Forms.TextBox nazov_textBox;
+        private System.Windows.Forms.Label nazov_label;
         private System.Windows.Forms.TextBox obsah_textBox;
-        private MetroFramework.Controls.MetroButton close_button_poznamky;
-        private MetroFramework.Controls.MetroButton ok_button_poznamky;
+        private System.Windows.Forms.Label obsah_label;
+        private System.Windows.Forms.Button ok_button_poznamky;
+        private System.Windows.Forms.Button close_button_poznamky;
     }
 }
