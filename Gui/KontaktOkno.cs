@@ -72,7 +72,7 @@ namespace Gui
 
         private void ok_btn_click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(kontakt_meno_tb.Text))
+            if (!String.IsNullOrEmpty(kontakt_meno_tb.Text) && !String.IsNullOrEmpty(kontakt_priezvisko_tb.Text))
             {
                 var sb = new StringBuilder();
                 sb.Append(kontakt_adresa_obec_tb.Text);
@@ -118,7 +118,9 @@ namespace Gui
                 var sb = new StringBuilder();
                 sb.AppendLine("   " + Resources.TrebaVypPolia + " :");
                 sb.AppendLine("");
-                sb.AppendLine("      - " + Resources.Nazov);
+                //sb.AppendLine("      - " + Resources.Nazov);
+                if (String.IsNullOrEmpty(kontakt_meno_tb.Text)) sb.AppendLine(" - meno");
+                if (String.IsNullOrEmpty(kontakt_priezvisko_tb.Text)) sb.AppendLine(" - priezvisko");
                 MessageBox.Show(sb.ToString(), Resources.Info, MessageBoxButtons.OK, MessageBoxIcon.Information);         
             }
         }
@@ -140,5 +142,6 @@ namespace Gui
                 parent.ScrollujDataGridKZaznamu(parent.KontaktyDataGridView, row_index);
             }
         }
+
     }
 }

@@ -11,6 +11,7 @@ using Business;
 using Domain.Dto;
 using Gui.Properties;
 
+
 namespace Gui
 {
     public partial class PoznamkyOkno : Form
@@ -90,12 +91,12 @@ namespace Gui
                 }
             }
             else
-            {//TODO
-                /*var sb = new StringBuilder();
+            {
+                var sb = new StringBuilder();
                 sb.AppendLine("   " + Resources.TrebaVypPolia + " :");
                 sb.AppendLine("");
                 sb.AppendLine("      - " + Resources.Nazov);
-                MessageBox.Show(sb.ToString(), Resources.Info, MessageBoxButtons.OK, MessageBoxIcon.Information);*/
+                MessageBox.Show(sb.ToString(), Resources.Info, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -111,6 +112,11 @@ namespace Gui
 
                 parent.ScrollujDataGridKZaznamu(parent.PoznamkyDataGridView, row_index);
             }
+        }
+
+        private void PoznamkyOkno_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
