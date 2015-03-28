@@ -54,9 +54,9 @@
             this.obsah_label.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.obsah_label.Location = new System.Drawing.Point(23, 108);
             this.obsah_label.Name = "obsah_label";
-            this.obsah_label.Size = new System.Drawing.Size(104, 28);
+            this.obsah_label.Size = new System.Drawing.Size(111, 28);
             this.obsah_label.TabIndex = 27;
-            this.obsah_label.Text = "Popis udalosti";
+            this.obsah_label.Text = "Popis poznamky";
             this.obsah_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // nazov_label
@@ -71,17 +71,16 @@
             // 
             // nazov_textBox
             // 
-            this.nazov_textBox.Font = new System.Drawing.Font("Open Sans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nazov_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.nazov_textBox.Location = new System.Drawing.Point(85, 67);
-            this.nazov_textBox.Multiline = true;
             this.nazov_textBox.Name = "nazov_textBox";
-            this.nazov_textBox.Size = new System.Drawing.Size(280, 28);
+            this.nazov_textBox.Size = new System.Drawing.Size(280, 23);
             this.nazov_textBox.TabIndex = 0;
             // 
             // obsah_textBox
             // 
             this.obsah_textBox.BackColor = System.Drawing.Color.White;
-            this.obsah_textBox.Font = new System.Drawing.Font("Open Sans", 10F);
+            this.obsah_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.obsah_textBox.Location = new System.Drawing.Point(23, 138);
             this.obsah_textBox.Multiline = true;
             this.obsah_textBox.Name = "obsah_textBox";
@@ -139,7 +138,7 @@
             this.Controls.Add(this.obsah_textBox);
             this.Name = "PoznamkyOkno";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Poznamky udalosť";
+            this.Text = "Poznamky";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PoznamkyOkno_FormClosed);
             this.Load += new System.EventHandler(this.PoznamkyOkno_Load_1);
             this.ResumeLayout(false);
