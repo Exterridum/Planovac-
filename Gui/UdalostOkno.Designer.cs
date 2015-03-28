@@ -44,7 +44,7 @@
             // 
             // udalost_nazov_tb
             // 
-            this.udalost_nazov_tb.Font = new System.Drawing.Font("Open Sans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.udalost_nazov_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.udalost_nazov_tb.Location = new System.Drawing.Point(84, 67);
             this.udalost_nazov_tb.Multiline = true;
             this.udalost_nazov_tb.Name = "udalost_nazov_tb";
@@ -53,15 +53,15 @@
             // 
             // udalost_cas_dtp
             // 
-            this.udalost_cas_dtp.CalendarFont = new System.Drawing.Font("Open Sans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.udalost_cas_dtp.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.udalost_cas_dtp.CustomFormat = "dd.MM.yyyy  HH:mm";
             this.udalost_cas_dtp.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.udalost_cas_dtp.Font = new System.Drawing.Font("Open Sans", 10F);
+            this.udalost_cas_dtp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.udalost_cas_dtp.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.udalost_cas_dtp.Location = new System.Drawing.Point(84, 287);
             this.udalost_cas_dtp.Margin = new System.Windows.Forms.Padding(5);
             this.udalost_cas_dtp.Name = "udalost_cas_dtp";
-            this.udalost_cas_dtp.Size = new System.Drawing.Size(158, 26);
+            this.udalost_cas_dtp.Size = new System.Drawing.Size(158, 23);
             this.udalost_cas_dtp.TabIndex = 3;
             // 
             // udalost_nazov_l
@@ -88,7 +88,7 @@
             // udalost_popisUdalosti_tb
             // 
             this.udalost_popisUdalosti_tb.BackColor = System.Drawing.Color.White;
-            this.udalost_popisUdalosti_tb.Font = new System.Drawing.Font("Open Sans", 10F);
+            this.udalost_popisUdalosti_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.udalost_popisUdalosti_tb.Location = new System.Drawing.Point(22, 138);
             this.udalost_popisUdalosti_tb.Multiline = true;
             this.udalost_popisUdalosti_tb.Name = "udalost_popisUdalosti_tb";
@@ -119,7 +119,7 @@
             // 
             // udalost_miesto_tb
             // 
-            this.udalost_miesto_tb.Font = new System.Drawing.Font("Open Sans", 10F);
+            this.udalost_miesto_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.udalost_miesto_tb.Location = new System.Drawing.Point(84, 241);
             this.udalost_miesto_tb.Multiline = true;
             this.udalost_miesto_tb.Name = "udalost_miesto_tb";
@@ -206,7 +206,7 @@
             this.Name = "UdalostOkno";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "UdalostOkno";
+            this.Text = "Udalosť";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.UdalostOkno_FormClosed);
             this.Load += new System.EventHandler(this.UdalostOkno_Load);
             this.ResumeLayout(false);

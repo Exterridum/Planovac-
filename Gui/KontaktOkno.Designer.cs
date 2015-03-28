@@ -75,7 +75,7 @@ namespace Gui
             // 
             // kontakt_meno_tb
             // 
-            this.kontakt_meno_tb.Font = new System.Drawing.Font("Open Sans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.kontakt_meno_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.kontakt_meno_tb.Location = new System.Drawing.Point(83, 66);
             this.kontakt_meno_tb.Multiline = true;
             this.kontakt_meno_tb.Name = "kontakt_meno_tb";
@@ -94,7 +94,7 @@ namespace Gui
             // 
             // kontakt_priezvisko_tb
             // 
-            this.kontakt_priezvisko_tb.Font = new System.Drawing.Font("Open Sans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.kontakt_priezvisko_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.kontakt_priezvisko_tb.Location = new System.Drawing.Point(106, 105);
             this.kontakt_priezvisko_tb.Multiline = true;
             this.kontakt_priezvisko_tb.Name = "kontakt_priezvisko_tb";
@@ -123,7 +123,7 @@ namespace Gui
             // 
             // kontakt_adresa_obec_tb
             // 
-            this.kontakt_adresa_obec_tb.Font = new System.Drawing.Font("Open Sans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.kontakt_adresa_obec_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.kontakt_adresa_obec_tb.Location = new System.Drawing.Point(83, 198);
             this.kontakt_adresa_obec_tb.Multiline = true;
             this.kontakt_adresa_obec_tb.Name = "kontakt_adresa_obec_tb";
@@ -142,7 +142,7 @@ namespace Gui
             // 
             // kontakt_adresa_ulica_tb
             // 
-            this.kontakt_adresa_ulica_tb.Font = new System.Drawing.Font("Open Sans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.kontakt_adresa_ulica_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.kontakt_adresa_ulica_tb.Location = new System.Drawing.Point(83, 237);
             this.kontakt_adresa_ulica_tb.Multiline = true;
             this.kontakt_adresa_ulica_tb.Name = "kontakt_adresa_ulica_tb";
@@ -161,7 +161,7 @@ namespace Gui
             // 
             // kontakt_adresa_cislo_tb
             // 
-            this.kontakt_adresa_cislo_tb.Font = new System.Drawing.Font("Open Sans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.kontakt_adresa_cislo_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.kontakt_adresa_cislo_tb.Location = new System.Drawing.Point(83, 276);
             this.kontakt_adresa_cislo_tb.Multiline = true;
             this.kontakt_adresa_cislo_tb.Name = "kontakt_adresa_cislo_tb";
@@ -180,7 +180,7 @@ namespace Gui
             // 
             // kontakt_adresa_psc_tb
             // 
-            this.kontakt_adresa_psc_tb.Font = new System.Drawing.Font("Open Sans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.kontakt_adresa_psc_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.kontakt_adresa_psc_tb.Location = new System.Drawing.Point(83, 315);
             this.kontakt_adresa_psc_tb.Multiline = true;
             this.kontakt_adresa_psc_tb.Name = "kontakt_adresa_psc_tb";
@@ -199,7 +199,7 @@ namespace Gui
             // 
             // kontakt_telc_tb
             // 
-            this.kontakt_telc_tb.Font = new System.Drawing.Font("Open Sans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.kontakt_telc_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.kontakt_telc_tb.Location = new System.Drawing.Point(91, 393);
             this.kontakt_telc_tb.Multiline = true;
             this.kontakt_telc_tb.Name = "kontakt_telc_tb";
@@ -218,7 +218,7 @@ namespace Gui
             // 
             // kontakt_email_tb
             // 
-            this.kontakt_email_tb.Font = new System.Drawing.Font("Open Sans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.kontakt_email_tb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.kontakt_email_tb.Location = new System.Drawing.Point(83, 354);
             this.kontakt_email_tb.Multiline = true;
             this.kontakt_email_tb.Name = "kontakt_email_tb";
@@ -290,7 +290,7 @@ namespace Gui
             this.Name = "KontaktOkno";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Kontakt udalosť";
+            this.Text = "Kontakt";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.KontaktOkno_FormClosed);
             this.Load += new System.EventHandler(this.KontaktOkno_Load);
             this.ResumeLayout(false);

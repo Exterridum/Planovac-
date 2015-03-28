@@ -138,7 +138,7 @@
             this.Controls.Add(this.obsah_textBox);
             this.Name = "PoznamkyOkno";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Poznamky";
+            this.Text = "Poznamka";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PoznamkyOkno_FormClosed);
             this.Load += new System.EventHandler(this.PoznamkyOkno_Load_1);
             this.ResumeLayout(false);
