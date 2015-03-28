@@ -3,7 +3,7 @@
     partial class PoznamkyOkno
     {
         /// <summary>
-        /// Required designer variable.
+        /// Required designer Test variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 

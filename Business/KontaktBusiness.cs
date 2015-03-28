@@ -12,7 +12,7 @@ namespace Business
     public class KontaktBusiness : IBusiness<Kontakt>
     {
         /// <summary>
-        /// Dao objekt
+        /// Dao objekt 
         /// </summary>
         private KontaktDao dao;
 
