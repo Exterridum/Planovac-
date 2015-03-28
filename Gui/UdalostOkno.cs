@@ -98,7 +98,7 @@ namespace Gui
             this.AcceptButton = this.ok_btn;
 
             // vynimka - nastavenie multiline textboxu aby po stlaceni Enter isiel na novy riadok (nie automatikcy stlacik Ok)
-            this.udalost_popisUdalosti_tb.AcceptsReturn = true;       
+            this.udalost_popisUdalosti_tb.AcceptsReturn = true;     
         }
 
         /// <summary>
@@ -117,7 +117,7 @@ namespace Gui
                     // Udate
                     dto.Nazov = udalost_nazov_tb.Text;
                     dto.PopisUdalosti = udalost_popisUdalosti_tb.Text;
-                    dto.Miesto = udalost_miesto_tb.Text;
+                    dto.Miesto = udalost_nazov_tb.Text;
                     dto.Cas = udalost_cas_dtp.Value;
                     dto.Priorita = udalost_priorita_chb.Checked;
 
@@ -134,7 +134,7 @@ namespace Gui
                     dto.User = Environment.UserName;
                     dto.Nazov = udalost_nazov_tb.Text;
                     dto.PopisUdalosti = udalost_popisUdalosti_tb.Text;
-                    dto.Miesto = udalost_miesto_tb.Text;
+                    dto.Miesto = udalost_nazov_tb.Text;
                     dto.Cas = udalost_cas_dtp.Value;
                     dto.Priorita = udalost_priorita_chb.Checked;
 
@@ -186,7 +186,8 @@ namespace Gui
 
                 // scrolluj k danemu zaznamu
                 rodic.ScrollujDataGridKZaznamu(rodic.UdalostiDataGridView, row_index);           
-            }          
-        }   
+            }
+        }
+
     }
 }

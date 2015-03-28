@@ -22,20 +22,21 @@ using Business;
 using Domain.Dao;
 using Domain.Dto;
 using Gui.Properties;
+using MetroFramework.Forms;
 
 namespace Gui
 {
     /// <summary>
     /// Hlavne okno
     /// </summary>
-    public partial class HlavneOkno : Form
+    public partial class HlavneOkno : MetroForm
     {
         /// <summary>
         /// Property UdalostiDataGridView
         /// </summary>
         public DataGridView UdalostiDataGridView
         {
-            get { return udalostiDataGridView; }
+            get { return udalostiDataGridView1; }
         }
 
         public DataGridView KontaktyDataGridView
@@ -70,7 +71,7 @@ namespace Gui
         {
             // Zistim meno pouzivatela Windows
             this.Username = Environment.UserName;
-            this.username_tb.Text = Resources.Uzivatel + ":  " + Username;
+            this.username_t.Text = Resources.Uzivatel + ":  " + Username;
 
             // Nastavim nazvy z resources
             this.Text = Resources.HlavneOknoNazov;
@@ -103,9 +104,9 @@ namespace Gui
             //---------------------------------------------------------------------
             // 1. Nastavujem DataGridView                                    
             //---------------------------------------------------------------------
-            udalostiDataGridView.AutoSize = false;
-            udalostiDataGridView.Width = 340;
-            udalostiDataGridView.AutoGenerateColumns = false;
+            udalostiDataGridView1.AutoSize = false;
+            udalostiDataGridView1.Width = 340;
+            udalostiDataGridView1.AutoGenerateColumns = false;
 
             //---------------------------------------------------------------------
             // 2. Pridam rucne stplce do DataGridView
@@ -114,14 +115,14 @@ namespace Gui
             DataGridViewColumn column_0 = new DataGridViewTextBoxColumn();
             column_0.Width = 15;
             column_0.ReadOnly = true;
-            udalostiDataGridView.Columns.Add(column_0);
+            udalostiDataGridView1.Columns.Add(column_0);
 
             // checkbox column na mazanie
             DataGridViewCheckBoxColumn column_1 = new DataGridViewCheckBoxColumn();
             column_1.ValueType = typeof(bool);
             column_1.Width = 20;
             column_1.ReadOnly = false;
-            udalostiDataGridView.Columns.Add(column_1);
+            udalostiDataGridView1.Columns.Add(column_1);
 
             // stlpec nazov
             DataGridViewColumn column_2 = new DataGridViewTextBoxColumn();
@@ -131,7 +132,7 @@ namespace Gui
             column_2.MinimumWidth = 170;
             column_2.FillWeight = 100;
             column_2.ReadOnly = true;
-            udalostiDataGridView.Columns.Add(column_2);
+            udalostiDataGridView1.Columns.Add(column_2);
 
             // stlpec Cas
             DataGridViewColumn column_3 = new DataGridViewTextBoxColumn();
@@ -140,20 +141,20 @@ namespace Gui
             column_3.Width = 99;
             column_3.ReadOnly = true;
             column_3.DefaultCellStyle.Format = "dd.MM.yyyy   HH:mm";
-            udalostiDataGridView.Columns.Add(column_3);
+            udalostiDataGridView1.Columns.Add(column_3);
 
             // stlpec priorita
             DataGridViewColumn column_4 = new DataGridViewTextBoxColumn();
             column_4.Width = 2;
             column_4.ReadOnly = true;
-            udalostiDataGridView.Columns.Add(column_4);
+            udalostiDataGridView1.Columns.Add(column_4);
 
             // Header check box na oznacenie vsetkych zaznamov
             CheckBox h_chBox = new CheckBox();
             h_chBox.Name = "header_checkbox";
 
             // ziskam zobrazovaci obdlznik header bunky
-            Rectangle rect = this.udalostiDataGridView.GetCellDisplayRectangle(1, -1, true);
+            Rectangle rect = this.udalostiDataGridView1.GetCellDisplayRectangle(1, -1, true);
             h_chBox.Size = new Size(13, 13);
 
             // nastavim poziciu check boxu napevno
@@ -163,12 +164,12 @@ namespace Gui
             h_chBox.CheckedChanged += new EventHandler(udalosti_h_chBox_CheckedChanged);
 
             // pridam check box do datagrid view
-            this.udalostiDataGridView.Controls.Add(h_chBox);
+            this.udalostiDataGridView1.Controls.Add(h_chBox);
 
             //---------------------------------------------------------------------
             // 3. Vytvorim binding source a pripojim k data source DataGridView
             //---------------------------------------------------------------------
-            RefreshDataGrid<Udalost>(udalostiDataGridView, new UdalostBusiness());          
+            RefreshDataGrid<Udalost>(udalostiDataGridView1, new UdalostBusiness());          
         }
 
         /// <summary>
@@ -181,8 +182,8 @@ namespace Gui
         private void monthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
         {
             // refresh data grid view
-            udalostiDataGridView.Invalidate();
-            udalostiDataGridView.Refresh();
+            udalostiDataGridView1.Invalidate();
+            udalostiDataGridView1.Refresh();
         }
 
         /// <summary>
@@ -193,7 +194,7 @@ namespace Gui
         /// <param name="e">event parameter</param>
         private void udalosti_h_chBox_CheckedChanged(object sender, EventArgs e)
         {
-            ZaskrtniOdskrtniVsetkyCheckBoxy(udalostiDataGridView, (CheckBox) sender);
+            ZaskrtniOdskrtniVsetkyCheckBoxy(udalostiDataGridView1, (CheckBox) sender);
         }        
 
         /// <summary>
@@ -210,10 +211,10 @@ namespace Gui
         private void udalostiDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             // ! defaultne nastavenie zafarbenia bunky dalej v kode mozem ovveride-nut defaultne nastavenie !
-            this.udalostiDataGridView.DefaultCellStyle.BackColor = Color.White;
-            this.udalostiDataGridView.DefaultCellStyle.ForeColor = Color.Black;
-            this.udalostiDataGridView.DefaultCellStyle.SelectionBackColor = SystemColors.Highlight;
-            this.udalostiDataGridView.DefaultCellStyle.SelectionForeColor = Color.White;
+            this.udalostiDataGridView1.DefaultCellStyle.BackColor = Color.White;
+            this.udalostiDataGridView1.DefaultCellStyle.ForeColor = Color.Black;
+            this.udalostiDataGridView1.DefaultCellStyle.SelectionBackColor = SystemColors.Highlight;
+            this.udalostiDataGridView1.DefaultCellStyle.SelectionForeColor = Color.White;
             
             // ovveride-y
             if (e.ColumnIndex == 0)
@@ -224,7 +225,7 @@ namespace Gui
                 DateTime selDate = this.monthCalendar1.SelectionRange.Start;
 
                 // ziskam objekt Dto na ktory je naviazany riadok
-                Udalost o = (Udalost)this.udalostiDataGridView.Rows[e.RowIndex].DataBoundItem;
+                Udalost o = (Udalost)this.udalostiDataGridView1.Rows[e.RowIndex].DataBoundItem;
 
                 // 1. BackColor
                 if (o.Cas.Date == selDate.Date)
@@ -251,7 +252,7 @@ namespace Gui
                 // pre stlpec 4 - stlpec ktory naznacuje ci ma udalost prioritu
 
                 // ziskam objekt Dto na ktory je naviazany riadok
-                Udalost o = (Udalost)this.udalostiDataGridView.Rows[e.RowIndex].DataBoundItem;
+                Udalost o = (Udalost)this.udalostiDataGridView1.Rows[e.RowIndex].DataBoundItem;
                 
                 if (o.Priorita)
                 {
@@ -272,7 +273,7 @@ namespace Gui
         /// <param name="e">event parameter</param>
         private void udalostiDataGridView_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
-            this.udalostiDataGridView.Focus();
+            this.udalostiDataGridView1.Focus();
         }
 
         /// <summary>
@@ -287,14 +288,14 @@ namespace Gui
             if (e.RowIndex != -1 && e.ColumnIndex != 0 && e.ColumnIndex != 1)
             {
                 // ziskam objekt
-                Udalost u = (Udalost)udalostiDataGridView.SelectedRows[0].DataBoundItem;
+                Udalost u = (Udalost)udalostiDataGridView1.SelectedRows[0].DataBoundItem;
 
                 UdalostOkno okno = new UdalostOkno(u.Id);
 
                 // odznacim header check box ak bol zaskrtnuty
-                if (((CheckBox)this.udalostiDataGridView.Controls["header_checkbox"]).Checked) 
+                if (((CheckBox)this.udalostiDataGridView1.Controls["header_checkbox"]).Checked) 
                 {
-                    ((CheckBox)this.udalostiDataGridView.Controls["header_checkbox"]).Checked = false;
+                    ((CheckBox)this.udalostiDataGridView1.Controls["header_checkbox"]).Checked = false;
                 }
                 
                 // otvorim detail
@@ -310,10 +311,10 @@ namespace Gui
         /// <param name="e">event parameter</param>
         private void zmazat_udalost_btn_Click(object sender, EventArgs e)
         {
-            ZmazVybraneZaznamyVDataGride<Udalost>(udalostiDataGridView, new UdalostBusiness());
+            ZmazVybraneZaznamyVDataGride<Udalost>(udalostiDataGridView1, new UdalostBusiness());
 
             // odznacim header check box
-            ((CheckBox)this.udalostiDataGridView.Controls["header_checkbox"]).Checked = false;
+            ((CheckBox)this.udalostiDataGridView1.Controls["header_checkbox"]).Checked = false;
         }
 
         /// <summary>
@@ -327,9 +328,9 @@ namespace Gui
             UdalostOkno okno = new UdalostOkno();
 
             // odznacim header check box ak bol zaskrtnuty
-            if (((CheckBox)this.udalostiDataGridView.Controls["header_checkbox"]).Checked)
+            if (((CheckBox)this.udalostiDataGridView1.Controls["header_checkbox"]).Checked)
             {
-                ((CheckBox)this.udalostiDataGridView.Controls["header_checkbox"]).Checked = false;
+                ((CheckBox)this.udalostiDataGridView1.Controls["header_checkbox"]).Checked = false;
             }
 
             okno.ShowDialog(this);
@@ -373,14 +374,14 @@ namespace Gui
             kontaktyDataGridView.Columns.Add(column_1);
 
             // stlpec meno
-            /*DataGridViewColumn column_2 = new DataGridViewTextBoxColumn();
+            DataGridViewColumn column_2 = new DataGridViewTextBoxColumn();
             column_2.DataPropertyName = Resources.Kontakt_meno_l;
             column_2.Name = Resources.Kontakt_meno_l;
             column_2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             column_2.MinimumWidth = 170;
-            column_2.FillWeight = 100;
+            column_2.FillWeight = 60;
             column_2.ReadOnly = true;
-            kontaktyDataGridView.Columns.Add(column_2);*/
+            kontaktyDataGridView.Columns.Add(column_2);
 
             // stlpec Priezvisko
             DataGridViewColumn column_3 = new DataGridViewTextBoxColumn();
@@ -388,7 +389,7 @@ namespace Gui
             column_3.Name = Resources.Kontakt_priezvisko_l;
             column_3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             column_3.MinimumWidth = 170;
-            column_3.FillWeight = 100;
+            column_3.FillWeight = 80;
             column_3.ReadOnly = true;
             kontaktyDataGridView.Columns.Add(column_3);
 
@@ -647,9 +648,20 @@ namespace Gui
                 /* nastavenie oznaceneho riadka v datagride ako Readonly false 
                 * bez tochto nastavenia sa stavalo ze sa oznacili/odznacili vsetky chack boxy 
                 * okrem toho vo vyznacenom riadku */
-                udalostiDataGridView.SelectedRows[0].ReadOnly = false;
-                kontaktyDataGridView.SelectedRows[0].ReadOnly = false;
-                poznamkyDataGridView.SelectedRows[0].ReadOnly = false;
+                if (udalostiDataGridView1.SelectedRows.Count != 0)
+                {
+                    udalostiDataGridView1.SelectedRows[0].ReadOnly = false;    
+                }
+                
+                if (kontaktyDataGridView.SelectedRows.Count != 0)
+                {
+                    kontaktyDataGridView.SelectedRows[0].ReadOnly = false;
+                }
+
+                if (poznamkyDataGridView.SelectedRows.Count != 0)
+                {
+                    poznamkyDataGridView.SelectedRows[0].ReadOnly = false;                    
+                }
 
                 if (headerCheckBox.Checked)
                 {
@@ -811,6 +823,11 @@ namespace Gui
                 // otvorim detail
                 okno.ShowDialog(this);
             }
+        }
+
+        private void username_t_Click(object sender, EventArgs e)
+        {
+
         }
 
 

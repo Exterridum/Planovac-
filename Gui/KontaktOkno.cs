@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -38,15 +37,16 @@ namespace Gui
             kb = new KontaktBusiness();
             dto = kb.ZiskajZaznam(id);
 
+
+            string stringAddress = dto.Adresa;
+            string[] address = stringAddress.Split(' ');
+
             this.kontakt_meno_tb.Text = dto.Meno;
             this.kontakt_priezvisko_tb.Text = dto.Priezvisko;
-            string dtoAddress = dto.Adresa;
-            string[] lineAdress = dtoAddress.Split(' ');
-            Console.WriteLine(lineAdress.Count());
-            this.kontakt_adresa_obec_tb.Text = lineAdress[0];
-            this.kontakt_adresa_ulica_tb.Text = lineAdress[1];
-            this.kontakt_adresa_cislo_tb.Text = lineAdress[2];
-            this.kontakt_adresa_psc_tb.Text = lineAdress[3];
+            this.kontakt_adresa_obec_tb.Text = address[0];
+            this.kontakt_adresa_ulica_tb.Text = address[1];
+            this.kontakt_adresa_cislo_tb.Text = address[2];
+            this.kontakt_adresa_psc_tb.Text = address[3];
             this.kontakt_email_tb.Text = dto.Email;
             this.kontakt_telc_tb.Text = dto.Telc;
 
@@ -57,7 +57,7 @@ namespace Gui
         {
             this.kontakt_meno_l.Text = Resources.Kontakt_meno_l + " :";
             this.kontakt_priezvisko_l.Text = Resources.Kontakt_priezvisko_l + " :";
-            this.kontakt_adresa_l.Text = Resources.Kontakt_adresa_obec_l;
+            this.kontakt_adresa_obec_l.Text = Resources.Kontakt_adresa_obec_l;
             this.kontakt_adresa_obec_l.Text = Resources.Kontakt_adresa_obec_l + " :";
             this.kontakt_adresa_ulica_l.Text = Resources.Kontakt_adresa_ulica_l + " :";
             this.kontakt_adresa_cislo_l.Text = Resources.Kontakt_adresa_cislo_l + " :";
@@ -72,12 +72,12 @@ namespace Gui
 
         private void ok_btn_click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(kontakt_meno_tb.Text))
+            if (!String.IsNullOrEmpty(kontakt_meno_tb.Text) && !String.IsNullOrEmpty(kontakt_priezvisko_tb.Text))
             {
                 var sb = new StringBuilder();
                 sb.Append(kontakt_adresa_obec_tb.Text);
                 sb.Append(" ");
-                sb.Append(kontakt_adresa_ulica_tb.Text); 
+                sb.Append(kontakt_adresa_ulica_tb.Text);
                 sb.Append(" ");
                 sb.Append(kontakt_adresa_cislo_tb.Text);
                 sb.Append(" ");
@@ -87,7 +87,6 @@ namespace Gui
                 {
                     dto.Meno = kontakt_meno_tb.Text;
                     dto.Priezvisko = kontakt_priezvisko_tb.Text;
-
                     dto.Adresa = sb.ToString();
                     dto.Email = kontakt_email_tb.Text;
                     dto.Telc = kontakt_telc_tb.Text;
@@ -97,12 +96,11 @@ namespace Gui
                 }
                 else
                 {
-                   dto = new Kontakt
+                    dto = new Kontakt
                     {
                         User = Environment.UserName,
                         Meno = kontakt_meno_tb.Text,
                         Priezvisko = kontakt_priezvisko_tb.Text,
-
                         Adresa = sb.ToString(),
                         Email = kontakt_email_tb.Text,
                         Telc = kontakt_telc_tb.Text,
@@ -118,7 +116,9 @@ namespace Gui
                 var sb = new StringBuilder();
                 sb.AppendLine("   " + Resources.TrebaVypPolia + " :");
                 sb.AppendLine("");
-                sb.AppendLine("      - " + Resources.Nazov);
+                //sb.AppendLine("      - " + Resources.Nazov);
+                if (String.IsNullOrEmpty(kontakt_meno_tb.Text)) sb.AppendLine(" - meno");
+                if (String.IsNullOrEmpty(kontakt_priezvisko_tb.Text)) sb.AppendLine(" - priezvisko");
                 MessageBox.Show(sb.ToString(), Resources.Info, MessageBoxButtons.OK, MessageBoxIcon.Information);         
             }
         }
@@ -140,5 +140,6 @@ namespace Gui
                 parent.ScrollujDataGridKZaznamu(parent.KontaktyDataGridView, row_index);
             }
         }
+
     }
 }
